@@ -7,6 +7,16 @@ that gets out of the way.
 > Wikidian is a fork of [Wikipedia][upstream] by Ha'ani Whitlock, rebuilt around
 > a source tree and a build step. See [Credits](#credits).
 
+> [!IMPORTANT]
+> **Reading or writing CJK? Install the Source Han variable fonts.**
+> The Latin faces ship inside `theme.css`, but a Chinese font runs to several
+> megabytes and cannot travel with a stylesheet. For the intended look —
+> body text and article titles in the serif, section headings in the sans —
+> install [**Source Han Serif SC VF**][source-han-serif] and
+> [**Source Han Sans SC VF**][source-han-sans] (the Noto CJK releases are the
+> same fonts under a different name). Without them, CJK text falls back to
+> whatever serif and sans your platform happens to provide.
+
 <!-- TODO: screenshots -->
 
 ## Install
@@ -61,6 +71,20 @@ Requires Obsidian 1.10.6 or later — see `minAppVersion` in `manifest.json`.
 
 >[!check|info] A Check callout wearing infobox styling.
 ```
+
+### Typography
+
+Body text and the article title (H1) are set in a serif; H2–H6 are set in a
+sans, so the section headings read as structure rather than as more prose.
+
+The Latin faces travel with the theme, so the title always renders in
+**Wikidian Libertine**. CJK faces cannot — a Chinese font runs to several
+megabytes — so they are named in the stack and come from the system: install
+**Source Han Serif SC** and **Source Han Sans SC** (or their Noto twins) for
+the intended look, otherwise Chinese text falls back to whatever serif and
+sans the platform provides.
+
+A font chosen under *Settings → Appearance* overrides all of this, as usual.
 
 ### Image alts
 
@@ -128,8 +152,8 @@ under the MIT License. Much of the original CSS was adapted from wikipedia.org
 and mapped onto Obsidian's components. Both copyright notices are retained in
 [LICENSE](LICENSE).
 
-Headings are set in **Wikidian Libertine**, a Latin subset of *Linux Libertine
-O* by Philipp H. Poll, used under the SIL Open Font License 1.1. See
+Article titles are set in **Wikidian Libertine**, a Latin subset of *Linux
+Libertine O* by Philipp H. Poll, used under the SIL Open Font License 1.1. See
 [fonts/README.md](fonts/README.md) and [fonts/OFL.txt](fonts/OFL.txt).
 
 This project is not affiliated with or endorsed by Wikipedia or the Wikimedia
@@ -140,5 +164,7 @@ Foundation.
 [MIT](LICENSE) for the theme. Bundled fonts are under the
 [SIL OFL 1.1](fonts/OFL.txt).
 
+[source-han-serif]: https://github.com/adobe-fonts/source-han-serif/releases
+[source-han-sans]: https://github.com/adobe-fonts/source-han-sans/releases
 [upstream]: https://github.com/Bluemoondragon07/Wikipedia-Theme
 [style-settings]: https://github.com/mgmeyers/obsidian-style-settings

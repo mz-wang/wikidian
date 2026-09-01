@@ -59,8 +59,29 @@
 
 /* ====================================================================== */
 
-body { 
---font-default: 'Arial', 'Helvetica', sans-serif;
+/*
+ * Type is split three ways: a serif for reading (body text and the H1 article
+ * title), a sans for the scanning layer (H2-H6), and Arial for the app chrome.
+ * Wikipedia does the reverse -- serif headings over a sans body -- but a serif
+ * body is what long-form reading wants, so the contrast moves to the headings.
+ *
+ * CJK faces are named here, not bundled. A Latin subset is 60 KB per face; a
+ * Chinese one runs to several MB, which no stylesheet can carry. Latin always
+ * lands on a bundled or near-universal face, CJK degrades to whatever serif or
+ * sans the platform offers.
+ */
+body {
+  --wikidian-font-serif:
+    'Source Han Serif SC VF', 'Source Han Serif SC', 'Noto Serif CJK SC',
+    'Noto Serif SC', 'Georgia', 'Times New Roman', 'Songti SC', 'SimSun', serif;
+  --wikidian-font-sans:
+    'Source Han Sans SC VF', 'Source Han Sans SC', 'Noto Sans SC',
+    ui-sans-serif, -apple-system, 'Segoe UI', 'Roboto', 'PingFang SC',
+    'Microsoft YaHei', 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* Chrome only -- reading and editing text comes from --font-text-theme. */
+  --font-default: 'Arial', 'Helvetica', sans-serif;
+  --font-text-theme: var(--wikidian-font-serif);
 }
 
 /* ----- inline title ----- */
@@ -74,7 +95,14 @@ body {
 
 /* ----- headings ----- */
 body{
-  --h1-font: 'Wikidian Libertine', 'Linux Libertine', 'Georgia', 'Times', serif;
+  /* Libertine first, so Latin resolves to the bundled face on every machine
+     and CJK falls through to the serif stack. */
+  --h1-font: 'Wikidian Libertine', 'Linux Libertine', var(--wikidian-font-serif);
+  --h2-font: var(--wikidian-font-sans);
+  --h3-font: var(--wikidian-font-sans);
+  --h4-font: var(--wikidian-font-sans);
+  --h5-font: var(--wikidian-font-sans);
+  --h6-font: var(--wikidian-font-sans);
   --h1-size: 1.7em;
   --h2-size: 1.25em;
   --h3-size: 1.17em;
@@ -257,6 +285,21 @@ body {
   --infobox-width: 25%;
   --infobox-margin: 1em 0 1em 1em;
   --infobox-margin-left: 1em 1em 1em 0;
+}
+
+/* Obsidian sets the label and value fonts to --font-interface, because the
+   properties table is editing chrome. Inside a note it reads as body content
+   -- and as infobox content once floated -- so give it the note's own font.
+   Both layouts, since it is content in either. */
+.metadata-container {
+  --metadata-label-font: var(--font-text);
+  --metadata-input-font: var(--font-text);
+}
+
+/* The heading above the table has no variable of its own -- Obsidian sets the
+   interface font on it directly -- so it takes a rule. */
+.metadata-properties-title {
+  font-family: var(--font-text);
 }
 
 /* Hide properties entirely (Style Settings). These two variables are exactly
@@ -568,7 +611,9 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
 }
 
 .callout-title-inner {
-  font-weight: var(--bold-weight);
+  /* --bold-weight is calc(--font-weight + --bold-modifier), i.e. 600, which
+     reads lighter than the properties table's heading. Match that instead. */
+  font-weight: var(--font-bold);
   color: var(--text-normal);
   margin-left: auto;
   margin-right: auto;
@@ -707,7 +752,7 @@ margin: 1em 0;
 
 /* default inline field styling */
 .dataview.inline-field-key {
-  font-family: var(--font-default);
+  font-family: inherit;
   font-weight: var(--font-bold);
   background-color: transparent;
   color: var(--text-accent);
@@ -718,7 +763,7 @@ margin: 1em 0;
 }
 
 .dataview.inline-field-value {
-  font-family: sans-serif;
+  font-family: inherit;
   background-color: transparent;
   padding: 0;
   

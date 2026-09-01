@@ -97,7 +97,9 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
 }
 
 .callout-title-inner {
-  font-weight: var(--bold-weight);
+  /* --bold-weight is calc(--font-weight + --bold-modifier), i.e. 600, which
+     reads lighter than the properties table's heading. Match that instead. */
+  font-weight: var(--font-bold);
   color: var(--text-normal);
   margin-left: auto;
   margin-right: auto;

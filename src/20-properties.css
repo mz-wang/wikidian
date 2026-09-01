@@ -23,6 +23,21 @@ body {
   --infobox-margin-left: 1em 1em 1em 0;
 }
 
+/* Obsidian sets the label and value fonts to --font-interface, because the
+   properties table is editing chrome. Inside a note it reads as body content
+   -- and as infobox content once floated -- so give it the note's own font.
+   Both layouts, since it is content in either. */
+.metadata-container {
+  --metadata-label-font: var(--font-text);
+  --metadata-input-font: var(--font-text);
+}
+
+/* The heading above the table has no variable of its own -- Obsidian sets the
+   interface font on it directly -- so it takes a rule. */
+.metadata-properties-title {
+  font-family: var(--font-text);
+}
+
 /* Hide properties entirely (Style Settings). These two variables are exactly
    what Obsidian gates the container's `display` on, in both view modes. */
 .hide-properties {

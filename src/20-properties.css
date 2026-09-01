@@ -52,7 +52,6 @@ body:not(.properties-inline) .metadata-container {
   --metadata-label-font-size: var(--h6-size);
   --metadata-label-font-weight: var(--font-bold);
   --metadata-label-text-color: var(--text-normal);
-  --metadata-label-text-color-hover: var(--text-normal);
   --metadata-input-font-size: var(--font-text-size);
   --metadata-input-text-color: var(--text-normal);
   --metadata-max-width: none;
@@ -106,6 +105,17 @@ body:not(.properties-inline) .metadata-property-icon {
 
 body:not(.properties-inline) .metadata-property:hover .metadata-property-icon,
 body:not(.properties-inline) .metadata-property:focus-within .metadata-property-icon {
+  opacity: 1;
+}
+
+/* Same treatment for the pill remove buttons, which Obsidian shows always. */
+body:not(.properties-inline) .metadata-property-value .multi-select-pill-remove-button {
+  opacity: 0;
+  transition: opacity var(--anim-duration-fast) ease-in-out;
+}
+
+body:not(.properties-inline) .metadata-property:hover .multi-select-pill-remove-button,
+body:not(.properties-inline) .metadata-property:focus-within .multi-select-pill-remove-button {
   opacity: 1;
 }
 

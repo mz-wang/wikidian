@@ -153,7 +153,7 @@ body {
 }
 
 
-a.tag, .editor .cl-hashtag {
+a.tag {
   background-color: transparent;
   color: var(--link-color);
   padding:0;
@@ -288,7 +288,6 @@ body:not(.properties-inline) .metadata-container {
   --metadata-label-font-size: var(--h6-size);
   --metadata-label-font-weight: var(--font-bold);
   --metadata-label-text-color: var(--text-normal);
-  --metadata-label-text-color-hover: var(--text-normal);
   --metadata-input-font-size: var(--font-text-size);
   --metadata-input-text-color: var(--text-normal);
   --metadata-max-width: none;
@@ -342,6 +341,17 @@ body:not(.properties-inline) .metadata-property-icon {
 
 body:not(.properties-inline) .metadata-property:hover .metadata-property-icon,
 body:not(.properties-inline) .metadata-property:focus-within .metadata-property-icon {
+  opacity: 1;
+}
+
+/* Same treatment for the pill remove buttons, which Obsidian shows always. */
+body:not(.properties-inline) .metadata-property-value .multi-select-pill-remove-button {
+  opacity: 0;
+  transition: opacity var(--anim-duration-fast) ease-in-out;
+}
+
+body:not(.properties-inline) .metadata-property:hover .multi-select-pill-remove-button,
+body:not(.properties-inline) .metadata-property:focus-within .multi-select-pill-remove-button {
   opacity: 1;
 }
 
@@ -522,8 +532,8 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
 
 .callout {
   overflow: hidden;
-  border: 1px solid rgb(var(--callout-color), 30%);
-  background-color: rgb(var(--callout-color), 10%);
+  border: 1px solid color-mix(in oklch, var(--callout-color) 30%, transparent);
+  background-color: color-mix(in oklch, var(--callout-color) 10%, transparent);
   margin: 1em;
   color: var(--text-normal);
   padding: 0.2em;
@@ -539,7 +549,7 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
 
 .callout:not([data-callout="info"]),
 .info-normal .callout[data-callout="info"] {
-  --h6-background: rgb(var(--callout-color), 20%); /* make header 6 match callout color */
+  --h6-background: color-mix(in oklch, var(--callout-color) 20%, transparent); /* make header 6 match callout color */
 }
 
 
@@ -553,7 +563,7 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
   padding:0.2em 0.4em;
   font-size: var(--h5-size);
   border: 1px solid var(--background-modifier-hover);
-  background-color: rgb(var(--callout-color), 20%);
+  background-color: color-mix(in oklch, var(--callout-color) 20%, transparent);
   text-align: center;
 }
 
@@ -700,7 +710,7 @@ margin: 1em 0;
   font-family: var(--font-default);
   font-weight: var(--font-bold);
   background-color: transparent;
-  color: var(--text-nav-selected);
+  color: var(--text-accent);
 }
 
 .dataview.inline-field-key::after {
@@ -717,7 +727,7 @@ margin: 1em 0;
 .dataview.inline-field-standalone-value {
   font-family: inherit;
   background-color: transparent;
-  color: var(--text-nav-selected);
+  color: var(--text-accent);
   margin: 0;
   padding: 0;
 }
@@ -764,7 +774,7 @@ body {
 --scrollbar-thumb-bg: transparent;
 }
 
-body:not(.native-scrollbars) ::-webkit-scrollbar {
+::-webkit-scrollbar {
 width: 10px;
 }
 
@@ -805,8 +815,6 @@ body {
 
 /* ------- Sidebar ------ */
 body {
---vault-name-font-size: 1.4em;
---vault-name-font-weight: 500;
 --indentation-guide-width: 0px;
 --nav-item-children-padding-left: 0px;
 }
@@ -851,7 +859,6 @@ body {
 /* collapse indicator */
 body {
   --nav-collapse-icon-color: var(--text-muted);
-  --nav-collapse-icon-color-collapsed: var(--text-muted);
 }
 
 .collapse-icon svg.svg-icon {
@@ -939,24 +946,23 @@ body {
 
 /* Primary Colors */
 .theme-light, .theme-dark {
-  --color-red-rgb: 232, 51,51;
   --color-red: rgb(232 41 41);
-  --color-cyan-rgb: 0, 194, 97;
+  --color-red-rgb: 232, 41, 41;
   --color-cyan: rgb(0 163 81);
-  --color-orange-rgb: 230, 111, 0;
+  --color-cyan-rgb: 0, 163, 81;
   --color-orange: rgb(230 111 0);
-  --color-yellow-rgb: 204, 204, 0;
+  --color-orange-rgb: 230, 111, 0;
   --color-yellow: rgb(163 163 0);
-  --color-green-rgb: 97, 194, 0;
+  --color-yellow-rgb: 163, 163, 0;
   --color-green: rgb(82 163 0);
-  --color-blue-rgb: 0, 105, 224;
+  --color-green-rgb: 82, 163, 0;
   --color-blue: rgb(0 105 224);
-  --color-purple-rgb: 81, 0, 194;
+  --color-blue-rgb: 0, 105, 224;
   --color-purple: rgb(140 63 247);
-  --color-pink-rgb: 194, 0, 81;
+  --color-purple-rgb: 140, 63, 247;
   --color-pink: rgb(194 0 81);
-  --callout-quote: 110, 110, 110;
-
+  --color-pink-rgb: 194, 0, 81;
+  --callout-quote: rgb(110 110 110);
 }
 
 /* Dark Theme */
@@ -1025,94 +1031,6 @@ body {
   --color-base-60: #707070;
   --color-base-70: #5a5a5a;
   --color-base-100: #222;
-}
-
-
-/* ====================================================================== */
-
-/* Plug-in Support ===================================================== */
-
-/* ====================================================================== */
-
-/* ------------ Plug-Ins ---------- */
-
-/* ------- Page Gallery ------- */
-
-.page-gallery__tile {
-  border: 1px var(--background-modifier-border) solid;
-  background-color: var(--background-secondary-alt);
-  padding: 0;
-  margin: 0;
-}
-
-.page-gallery__tiles {
-  gap: 4px;
-  min-width: 100%;
-  padding: 0;
-  margin: 0;
-  justify-content:flex-start;
-  flex-grow: 1;
-}
-
-.page-gallery__groups {
-  gap: 4px;
-  width: 100%;
-  padding: 0;
-}
-
-.page-gallery__fallback, .page-gallery__fallback:hover {
-  border-radius: 0;
-  box-shadow: none;
-  opacity: 1;
-  background: var(--background-modifier-hover) !important;
-}
-
-.page-gallery__image, .page-gallery__image:hover {
-  border-radius: 0;
-  box-shadow: none;
-  opacity: 1;
-}
-
-.page-gallery__field:first-child {
-  background-color: var(--h6-background);
-  text-align: center;
-  margin-bottom: 0.2em;
-  font-size: var(--h6-size);
-  font-weight: var(--h6-weight);
-}
-
-.page-gallery__fields {
-  text-shadow: none;
-  margin: 0;
-  padding: 4px;
-  overflow-wrap: break-word;
-  white-space: initial;
-}
-
-.page-gallery__field {
-  font-size: 0.9em;
-}
-
-/* buttons */
-.page-gallery__views-header-item {
-  font-size: var(--font-smaller);
-  color: var(--link-color);
-  border-radius: 0;
-  border-bottom: var(--background-modifier-border-hover) solid 1px;
-  margin: 0 0 1em 0;
-  padding: 0 0.5em;
-}
-
-.page-gallery__views-header-item.selected {
-  background: transparent;
-  box-shadow: none;
-  border-bottom: 1px solid var(--text-normal);
-  color: var(--text-normal);
-}
-
-.page-gallery__views-header {
-  justify-content: center;
-  margin-top: 1em;
 }
 
 

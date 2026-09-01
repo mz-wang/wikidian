@@ -20,7 +20,7 @@ body {
 }
 
 
-a.tag, .editor .cl-hashtag {
+a.tag {
   background-color: transparent;
   color: var(--link-color);
   padding:0;

@@ -6,8 +6,6 @@
 
 /* ------- Sidebar ------ */
 body {
---vault-name-font-size: 1.4em;
---vault-name-font-weight: 500;
 --indentation-guide-width: 0px;
 --nav-item-children-padding-left: 0px;
 }
@@ -52,7 +50,6 @@ body {
 /* collapse indicator */
 body {
   --nav-collapse-icon-color: var(--text-muted);
-  --nav-collapse-icon-color-collapsed: var(--text-muted);
 }
 
 .collapse-icon svg.svg-icon {

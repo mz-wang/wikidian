@@ -41,8 +41,7 @@ interactive: the type icon and *Add property* button fade in on hover rather
 than being removed. Style Settings can switch it to an inline label-and-value
 list, or hide it in both views.
 
-Requires Obsidian 1.4 or later, where properties replaced the old frontmatter
-block.
+Requires Obsidian 1.10.6 or later — see `minAppVersion` in `manifest.json`.
 
 ### Callout alts
 

@@ -11,7 +11,7 @@
   font-family: var(--font-default);
   font-weight: var(--font-bold);
   background-color: transparent;
-  color: var(--text-nav-selected);
+  color: var(--text-accent);
 }
 
 .dataview.inline-field-key::after {
@@ -28,7 +28,7 @@
 .dataview.inline-field-standalone-value {
   font-family: inherit;
   background-color: transparent;
-  color: var(--text-nav-selected);
+  color: var(--text-accent);
   margin: 0;
   padding: 0;
 }

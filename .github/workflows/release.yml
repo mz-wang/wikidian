@@ -1,0 +1,41 @@
+name: release
+
+on:
+  push:
+    tags: ['*']
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      # The release attaches the committed theme.css, so it must match src/.
+      - name: Verify theme.css matches src/
+        run: uv run build.py --check
+
+      - name: Verify tag matches manifest version
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          manifest_version=$(python -c "import json; print(json.load(open('manifest.json'))['version'])")
+          if [ "$tag" != "$manifest_version" ]; then
+            echo "tag $tag does not match manifest.json version $manifest_version" >&2
+            exit 1
+          fi
+
+      - name: Create draft release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create "$tag" \
+            --title="$tag" \
+            --generate-notes \
+            --draft \
+            manifest.json theme.css

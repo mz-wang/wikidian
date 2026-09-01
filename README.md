@@ -89,7 +89,9 @@ Copy one into `<vault>/.obsidian/snippets/` and enable it under
 
 ```sh
 uv run build.py            # regenerate theme.css
-uv run build.py --check    # fail if theme.css is stale
+uv run build.py --check    # fail if theme.css is stale (what CI runs)
+npm install && npm run lint    # stylelint, using Obsidian's own config
+npm run lint:fix               # apply the fixable ones
 ```
 
 `src/*.css` is concatenated in filename order, and `{{ font: ... }}`
@@ -98,15 +100,19 @@ inlined because Obsidian installs a theme by copying only `manifest.json` and
 `theme.css` — there is no second file it would fetch.
 
 ```
-src/                  theme source, one file per area
-fonts/                subset WOFF2 faces + their license
-tools/subset_fonts.py regenerate the subsets from upstream fonts
-build.py              src/ + fonts/ -> theme.css
-snippets/             optional add-ons, not part of the theme
+src/                   theme source, one file per area
+fonts/                 subset WOFF2 faces + their license
+tools/subset_fonts.py  regenerate the font subsets from upstream
+build.py               src/ + fonts/ -> theme.css
+snippets/              optional add-ons, not part of the theme
+screenshots/           store listing images (512x288)
 ```
 
-To iterate, symlink or copy the repo into
-`<vault>/.obsidian/themes/Wikidian/` and reload Obsidian after each build.
+To iterate, copy or symlink the repo into
+`<vault>/.obsidian/themes/Wikidian/` — the folder name must match `name` in
+`manifest.json` — and reload Obsidian after each build.
+
+Release and store-submission steps are in [RELEASING.md](RELEASING.md).
 
 ## Credits
 

@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Frontmatter (Infobox) =============================================== */
+
 /* ====================================================================== */
 
 /* ------ Frontmatter ------ */
@@ -8,6 +10,7 @@ body {
   --infobox-margin: 1em 0px 1em 1em;
   --infobox-margin-left: 1em 1em 1em 0px;
 }
+
 /* hide frontmatter option */
 .hide-frontmatter .frontmatter-container {
   display: none;
@@ -18,10 +21,11 @@ body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed .frontmatt
   color: var(--text-normal) !important;
   font-size: var(--font-smaller);
   border-bottom: none;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding-bottom: 0;
+  margin-bottom: 0;
   width: fit-content;
 }
+
 body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) {
   width: var(--infobox-width);
 }
@@ -33,9 +37,9 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
   font-size: var(--font-smaller);
   display: flex;
   border-bottom: none;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  height: 0px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  height: 0;
 }
 
 
@@ -59,9 +63,10 @@ body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-la
     background-color: var(--h6-background);
     text-align: center;
     margin-bottom: 0.2em;
-    padding: 0px;
+    padding: 0;
    display: block;
 }
+
 /* style section data */
 body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-data {
   font-size: var(--font-text-size);
@@ -84,15 +89,18 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
   width: fit-content;
   color: var(--text-faint);
 }
+
 .frontmatter-blockquote .frontmatter-container .frontmatter-container-header {
   border-bottom: none;
   padding: 0.2em 0.4em;
 }
+
 .frontmatter-blockquote .frontmatter-container .frontmatter-section-label {
   padding-right: 0.5em;
   padding-left: 2em;
 }
-.frontmatter-blockquote .frontmatter-container .frontmatter-section-label:after {
+
+.frontmatter-blockquote .frontmatter-container .frontmatter-section-label::after {
   content: ":";
 }
 

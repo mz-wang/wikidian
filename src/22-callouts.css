@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Callouts ============================================================ */
+
 /* ====================================================================== */
 
 /* ------- Callouts ------- */
@@ -24,12 +26,14 @@ body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~
   width: var(--infobox-width);
   margin: var(--infobox-margin);
 }
+
 .callout[data-callout-metadata~="left"] {
   float: left;
   clear: left;
   width: var(--infobox-width);
   margin: var(--infobox-margin-left);
 }
+
 body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~="normal"]) .callout-title {
   background-color: var(--h6-background);
   border: none;
@@ -38,8 +42,9 @@ body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~
 
 /* callout classes */
 .hide-callout-title .callout[data-callout="info"] .callout-content p:first-of-type{
-margin: 0px; /* close gaps in infobox when info callout title is hidden */
+margin: 0; /* close gaps in infobox when info callout title is hidden */
 }
+
 .hide-callout-title .callout[data-callout="info"] .callout-title {
   display: none;
 }
@@ -47,16 +52,17 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
 /* make image full size inside a callout */
 .markdown-rendered .callout-content img, .cm-contentContainer .callout-content img {
   float: none;
-  margin: 0px;
+  margin: 0;
   border: none;
   background-color: transparent;
   display: block;
   width: 100%;
 }
+
 .callout {
   overflow: hidden;
-  border: 1px solid rgba(var(--callout-color), 30%);
-  background-color: rgba(var(--callout-color), 10%);
+  border: 1px solid rgb(var(--callout-color), 30%);
+  background-color: rgb(var(--callout-color), 10%);
   margin: 1em;
   color: var(--text-normal);
   padding: 0.2em;
@@ -72,7 +78,7 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
 
 .callout:not([data-callout="info"]),
 .info-normal .callout[data-callout="info"] {
-  --h6-background: rgba(var(--callout-color), 20%); /* make header 6 match callout color */
+  --h6-background: rgb(var(--callout-color), 20%); /* make header 6 match callout color */
 }
 
 
@@ -86,15 +92,17 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
   padding:0.2em 0.4em;
   font-size: var(--h5-size);
   border: 1px solid var(--background-modifier-hover);
-  background-color: rgba(var(--callout-color), 20%);
+  background-color: rgb(var(--callout-color), 20%);
   text-align: center;
 }
+
 .callout-title-inner {
   font-weight: var(--bold-weight);
   color: var(--text-normal);
   margin-left: auto;
   margin-right: auto;
 }
+
 .callout-icon .svg-icon {
   color: var(--text-normal);
   margin-left: 2px;

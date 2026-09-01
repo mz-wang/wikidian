@@ -5,6 +5,7 @@
   "description": "An Obsidian theme that makes your vault read like an encyclopedia article.",
   "scripts": {
     "lint": "stylelint \"src/**/*.css\" \"snippets/**/*.css\"",
+    "lint:fix": "stylelint --fix \"src/**/*.css\" \"snippets/**/*.css\"",
     "build": "uv run build.py",
     "version": "node version-bump.mjs && git add manifest.json versions.json"
   },

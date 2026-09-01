@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Layout (Scrollbars, Radii, Tabs) ==================================== */
+
 /* ====================================================================== */
 
 /* ------------ Layout ------------- */
@@ -34,7 +36,8 @@ body {
   --tab-divider-color: var(--tab-outline-color);
   --tab-curve: 0px; 
 }
-.workspace-tab-header-container, .workspace-ribbon.mod-left:before {
+
+.workspace-tab-header-container, .workspace-ribbon.mod-left::before {
   background-image: var(--tab-gradient);
   background-position: left bottom;
   background-repeat: repeat-x;

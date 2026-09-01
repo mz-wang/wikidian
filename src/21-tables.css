@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Tables ============================================================== */
+
 /* ====================================================================== */
 
 /* ------ Tables ------ */
@@ -15,7 +17,7 @@ body {
   margin: 1em 0;
   background-color: var(--background-secondary-alt);
   max-width: 100%;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 
@@ -27,6 +29,7 @@ body {
   font-size: 0.9em;
   padding: 0.2em 0.1em;
 }
+
 .table-view-table > tbody > tr > td {
   text-align: left;
   border: var(--table-border-width) solid var(--background-modifier-border);

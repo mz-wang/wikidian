@@ -1,0 +1,64 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      # theme.css is committed because Obsidian installs it directly, so it
+      # must never drift from the modules it is generated from.
+      - name: Verify theme.css matches src/
+        run: uv run build.py --check
+
+      - name: Verify manifest.json and versions.json agree
+        run: |
+          python - <<'PY'
+          import json, sys
+
+          manifest = json.load(open("manifest.json"))
+          versions = json.load(open("versions.json"))
+
+          required = {"name", "version", "minAppVersion", "author"}
+          missing = required - manifest.keys()
+          if missing:
+              sys.exit(f"manifest.json is missing {sorted(missing)}")
+
+          version = manifest["version"]
+          if len(version.split(".")) != 3 or not all(
+              p.isdigit() for p in version.split(".")
+          ):
+              sys.exit(f"version {version!r} is not x.y.z")
+
+          if version not in versions:
+              sys.exit(f"versions.json has no entry for {version}")
+
+          if versions[version] != manifest["minAppVersion"]:
+              sys.exit(
+                  f"versions.json[{version}] is {versions[version]!r} but "
+                  f"manifest minAppVersion is {manifest['minAppVersion']!r}"
+              )
+
+          print(f"{manifest['name']} {version} (minAppVersion {manifest['minAppVersion']}) ok")
+          PY

@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Code, Lists, Embeds, Dividers & Blockquotes ========================= */
+
 /* ====================================================================== */
 
 /* ------ Code ------ */
@@ -7,6 +9,7 @@ body {
   --code-normal: var(--text-normal);
   --code-background: var(--background-secondary-alt);
 }
+
 .markdown-rendered code {
   border: 1px solid var(--background-modifier-hover);
   border-radius: 2px;
@@ -29,7 +32,7 @@ body {
 
 .embed-title {
   font-size: var(--h1-size);
-  font-family: vaR(--h1-font);
+  font-family: var(--h1-font);
   font-weight: var(--h1-weight);
   color: var(--link-color);
 }
@@ -37,6 +40,7 @@ body {
 .embed-title:hover {
   color: var(--link-color-hover);
 }
+
 /* ------ Dividers ------- */
  hr, .markdown-rendered hr {
   color: var(--background-modifier-border);
@@ -45,11 +49,12 @@ body {
   overflow: hidden;
   margin: 0;
 }
+
 /* -------- Blockquotes ------- */
 .markdown-rendered blockquote {
   padding-left: 1.6em;
   overflow: hidden;
   border-left: none;
-  margin: 1em 0px;
+  margin: 1em 0;
   font-style: italic;
 }

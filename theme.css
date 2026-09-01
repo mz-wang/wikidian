@@ -10,7 +10,9 @@
  */
 
 /* ====================================================================== */
+
 /* Fonts ================================================================ */
+
 /* ====================================================================== */
 
 /*
@@ -52,18 +54,20 @@
 
 
 /* ====================================================================== */
+
 /* Typography ========================================================== */
+
 /* ====================================================================== */
 
 body { 
---font-default: Arial, Helvetica, sans-serif;
+--font-default: 'Arial', 'Helvetica', sans-serif;
 }
 
 /* ----- inline title ----- */
 .inline-title {
   font-size: 2.3em;
   border-bottom: 1px solid var(--background-modifier-border);
-  padding: 0px;
+  padding: 0;
   font-family: var(--h1-font);
   line-height: 1.3;
 }
@@ -94,12 +98,15 @@ body{
   border-bottom: 1px solid var(--background-modifier-border);
   line-height: 1.3;
 }
+
 .HyperMD-header-1 {
   border-bottom: 1px solid var(--background-modifier-border);
 }
+
 .cm-header-1 {
   width: fit-content;
 }
+
 .markdown-reading-view .markdown-rendered h1 {
   overflow: hidden;
 }
@@ -112,19 +119,22 @@ body{
   margin-bottom: 0.2em;
   padding: 0.2em;
 }
+
 .callout h6, .callout .HyperMD-header-6,
 .callout h5, .callout .HyperMD-header-5,
 .callout h4, .callout .HyperMD-header-4,
 .callout h3, .callout .HyperMD-header-3,
 .callout h2, .callout .HyperMD-header-2,
 .callout h1, .callout .HyperMD-header-1 {
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 
 /* ====================================================================== */
+
 /* Links, Tags & Footnotes ============================================= */
+
 /* ====================================================================== */
 
 /* ----- Links and Tags ----- */
@@ -132,7 +142,6 @@ body {
 --link-unresolved-opacity: 0.85;
 --link-decoration: none;
 --link-external-decoration: none;
-
 --tag-background: transparent;
 --tag-background-hover: transparent;
 --tag-padding-x: 0px;
@@ -147,8 +156,8 @@ body {
 a.tag, .editor .cl-hashtag {
   background-color: transparent;
   color: var(--link-color);
-  padding:0px;
-  margin: 0px;
+  padding:0;
+  margin: 0;
 }
 
 .external-link {
@@ -164,7 +173,9 @@ sup.footnote-ref {
 
 
 /* ====================================================================== */
+
 /* Code, Lists, Embeds, Dividers & Blockquotes ========================= */
+
 /* ====================================================================== */
 
 /* ------ Code ------ */
@@ -172,6 +183,7 @@ body {
   --code-normal: var(--text-normal);
   --code-background: var(--background-secondary-alt);
 }
+
 .markdown-rendered code {
   border: 1px solid var(--background-modifier-hover);
   border-radius: 2px;
@@ -194,7 +206,7 @@ body {
 
 .embed-title {
   font-size: var(--h1-size);
-  font-family: vaR(--h1-font);
+  font-family: var(--h1-font);
   font-weight: var(--h1-weight);
   color: var(--link-color);
 }
@@ -202,6 +214,7 @@ body {
 .embed-title:hover {
   color: var(--link-color-hover);
 }
+
 /* ------ Dividers ------- */
  hr, .markdown-rendered hr {
   color: var(--background-modifier-border);
@@ -210,18 +223,21 @@ body {
   overflow: hidden;
   margin: 0;
 }
+
 /* -------- Blockquotes ------- */
 .markdown-rendered blockquote {
   padding-left: 1.6em;
   overflow: hidden;
   border-left: none;
-  margin: 1em 0px;
+  margin: 1em 0;
   font-style: italic;
 }
 
 
 /* ====================================================================== */
+
 /* Frontmatter (Infobox) =============================================== */
+
 /* ====================================================================== */
 
 /* ------ Frontmatter ------ */
@@ -230,6 +246,7 @@ body {
   --infobox-margin: 1em 0px 1em 1em;
   --infobox-margin-left: 1em 1em 1em 0px;
 }
+
 /* hide frontmatter option */
 .hide-frontmatter .frontmatter-container {
   display: none;
@@ -240,10 +257,11 @@ body:not(.frontmatter-blockquote) .frontmatter-container.is-collapsed .frontmatt
   color: var(--text-normal) !important;
   font-size: var(--font-smaller);
   border-bottom: none;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding-bottom: 0;
+  margin-bottom: 0;
   width: fit-content;
 }
+
 body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) {
   width: var(--infobox-width);
 }
@@ -255,9 +273,9 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
   font-size: var(--font-smaller);
   display: flex;
   border-bottom: none;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  height: 0px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  height: 0;
 }
 
 
@@ -281,9 +299,10 @@ body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-la
     background-color: var(--h6-background);
     text-align: center;
     margin-bottom: 0.2em;
-    padding: 0px;
+    padding: 0;
    display: block;
 }
+
 /* style section data */
 body:not(.frontmatter-blockquote) .frontmatter-container .frontmatter-section-data {
   font-size: var(--font-text-size);
@@ -306,15 +325,18 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
   width: fit-content;
   color: var(--text-faint);
 }
+
 .frontmatter-blockquote .frontmatter-container .frontmatter-container-header {
   border-bottom: none;
   padding: 0.2em 0.4em;
 }
+
 .frontmatter-blockquote .frontmatter-container .frontmatter-section-label {
   padding-right: 0.5em;
   padding-left: 2em;
 }
-.frontmatter-blockquote .frontmatter-container .frontmatter-section-label:after {
+
+.frontmatter-blockquote .frontmatter-container .frontmatter-section-label::after {
   content: ":";
 }
 
@@ -328,7 +350,9 @@ body:not(.frontmatter-blockquote) .frontmatter-container:not(.is-collapsed) .fro
 
 
 /* ====================================================================== */
+
 /* Tables ============================================================== */
+
 /* ====================================================================== */
 
 /* ------ Tables ------ */
@@ -344,7 +368,7 @@ body {
   margin: 1em 0;
   background-color: var(--background-secondary-alt);
   max-width: 100%;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 
@@ -356,6 +380,7 @@ body {
   font-size: 0.9em;
   padding: 0.2em 0.1em;
 }
+
 .table-view-table > tbody > tr > td {
   text-align: left;
   border: var(--table-border-width) solid var(--background-modifier-border);
@@ -371,7 +396,9 @@ body {
 
 
 /* ====================================================================== */
+
 /* Callouts ============================================================ */
+
 /* ====================================================================== */
 
 /* ------- Callouts ------- */
@@ -396,12 +423,14 @@ body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~
   width: var(--infobox-width);
   margin: var(--infobox-margin);
 }
+
 .callout[data-callout-metadata~="left"] {
   float: left;
   clear: left;
   width: var(--infobox-width);
   margin: var(--infobox-margin-left);
 }
+
 body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~="normal"]) .callout-title {
   background-color: var(--h6-background);
   border: none;
@@ -410,8 +439,9 @@ body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~
 
 /* callout classes */
 .hide-callout-title .callout[data-callout="info"] .callout-content p:first-of-type{
-margin: 0px; /* close gaps in infobox when info callout title is hidden */
+margin: 0; /* close gaps in infobox when info callout title is hidden */
 }
+
 .hide-callout-title .callout[data-callout="info"] .callout-title {
   display: none;
 }
@@ -419,16 +449,17 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
 /* make image full size inside a callout */
 .markdown-rendered .callout-content img, .cm-contentContainer .callout-content img {
   float: none;
-  margin: 0px;
+  margin: 0;
   border: none;
   background-color: transparent;
   display: block;
   width: 100%;
 }
+
 .callout {
   overflow: hidden;
-  border: 1px solid rgba(var(--callout-color), 30%);
-  background-color: rgba(var(--callout-color), 10%);
+  border: 1px solid rgb(var(--callout-color), 30%);
+  background-color: rgb(var(--callout-color), 10%);
   margin: 1em;
   color: var(--text-normal);
   padding: 0.2em;
@@ -444,7 +475,7 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
 
 .callout:not([data-callout="info"]),
 .info-normal .callout[data-callout="info"] {
-  --h6-background: rgba(var(--callout-color), 20%); /* make header 6 match callout color */
+  --h6-background: rgb(var(--callout-color), 20%); /* make header 6 match callout color */
 }
 
 
@@ -458,15 +489,17 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
   padding:0.2em 0.4em;
   font-size: var(--h5-size);
   border: 1px solid var(--background-modifier-hover);
-  background-color: rgba(var(--callout-color), 20%);
+  background-color: rgb(var(--callout-color), 20%);
   text-align: center;
 }
+
 .callout-title-inner {
   font-weight: var(--bold-weight);
   color: var(--text-normal);
   margin-left: auto;
   margin-right: auto;
 }
+
 .callout-icon .svg-icon {
   color: var(--text-normal);
   margin-left: 2px;
@@ -479,7 +512,9 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
 
 
 /* ====================================================================== */
+
 /* Images ============================================================== */
+
 /* ====================================================================== */
 
 /* ------ Images ------ */
@@ -506,6 +541,7 @@ body {
 .community-item-screenshot {
   width: 100% !important;
 }
+
 .community-modal-readme img {
   float: none;
   clear: none;
@@ -531,7 +567,7 @@ body {
 float: none;
 clear: none;
 width: revert;
-margin: 1em 0px;
+margin: 1em 0;
 }
 
 .float-left .markdown-rendered img {
@@ -539,6 +575,7 @@ margin: 1em 0px;
   clear: left;
   margin: var(--infobox-margin-left);
 }
+
 .float-left .markdown-rendered img ~ img {
   float: right;
   clear: right;
@@ -555,26 +592,29 @@ margin: 1em 0px;
 }
 
 /* image alts */
-.markdown-rendered img[alt*=right] {
+.markdown-rendered img[alt*="right"] {
   float: right !important;
   clear: right !important;
   margin: var(--infobox-margin) !important;
   width: var(--image-width) !important;
 }
-.markdown-rendered img[alt*=left] {
+
+.markdown-rendered img[alt*="left"] {
   float: left !important;
   clear: left !important;
   margin: var(--infobox-margin-left) !important;
   width: var(--image-width) !important;
 }
-.markdown-rendered img[alt*=normal],
-.markdown-rendered img[alt*=no-float] {
+
+.markdown-rendered img[alt*="normal"],
+.markdown-rendered img[alt*="no-float"] {
   float: none !important;
   clear: none !important;
-  margin: 1em 0px !important;
+  margin: 1em 0 !important;
   width: revert !important;
 } 
-.markdown-rendered img[alt*=center] {
+
+.markdown-rendered img[alt*="center"] {
   float: none !important;
   clear: both !important;
   margin: 1em auto !important;
@@ -584,7 +624,9 @@ margin: 1em 0px;
 
 
 /* ====================================================================== */
+
 /* Inline Dataview Fields ============================================== */
+
 /* ====================================================================== */
 
 /* ------- Inline Dataview ------- */
@@ -596,21 +638,24 @@ margin: 1em 0px;
   background-color: transparent;
   color: var(--text-nav-selected);
 }
+
 .dataview.inline-field-key::after {
   content: ':';
 }
+
 .dataview.inline-field-value {
   font-family: sans-serif;
   background-color: transparent;
-  padding: 0px;
+  padding: 0;
   
 }
+
 .dataview.inline-field-standalone-value {
   font-family: inherit;
   background-color: transparent;
   color: var(--text-nav-selected);
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -633,14 +678,16 @@ margin: 1em 0px;
 /* center inline field value inside callout */
 .callout-content .dataview.inline-field-value {
   background-color: transparent;
-  padding: 0px;
+  padding: 0;
   display: block;
   text-align: center;
 }
 
 
 /* ====================================================================== */
+
 /* Layout (Scrollbars, Radii, Tabs) ==================================== */
+
 /* ====================================================================== */
 
 /* ------------ Layout ------------- */
@@ -675,7 +722,8 @@ body {
   --tab-divider-color: var(--tab-outline-color);
   --tab-curve: 0px; 
 }
-.workspace-tab-header-container, .workspace-ribbon.mod-left:before {
+
+.workspace-tab-header-container, .workspace-ribbon.mod-left::before {
   background-image: var(--tab-gradient);
   background-position: left bottom;
   background-repeat: repeat-x;
@@ -683,7 +731,9 @@ body {
 
 
 /* ====================================================================== */
+
 /* Sidebar, Folders & Files ============================================ */
+
 /* ====================================================================== */
 
 /* ------- Sidebar ------ */
@@ -693,14 +743,17 @@ body {
 --indentation-guide-width: 0px;
 --nav-item-children-padding-left: 0px;
 }
+
 /* get rid of sidebar borders only */
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle, .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
   border-right-style: solid;
-  border-right-width: 0px;
+  border-right-width: 0;
 }
+
 .workspace-ribbon {
   border-right: none;
 }
+
 /* make sidebar background color match the main pane */
 .workspace-leaf-content[data-type="file-explorer"] {
   background-color: var(--background-primary) !important;
@@ -719,9 +772,11 @@ body {
 .nav-file-title-content {
   color: var(--link-color);
 }
+
 .nav-file-title-content:hover {
   color: var(--link-color-hover);
 }
+
 .nav-file-title:hover {
   background-color: transparent !important;
 }
@@ -731,6 +786,7 @@ body {
   --nav-collapse-icon-color: var(--text-muted);
   --nav-collapse-icon-color-collapsed: var(--text-muted);
 }
+
 .collapse-icon svg.svg-icon {
   stroke-width: 2.5px;
 }
@@ -739,20 +795,25 @@ body {
 .nav-header {
   transition: height 0.15s, opacity 0.1s;
 }
+
 .nav-header:not(:hover) {
   height: 5px;
   opacity: 0;
 }
+
 .nav-header:hover {
   opacity: 1;
 }
+
 .nav-buttons-container:hover {
   opacity: 1;
 }
 
 
 /* ====================================================================== */
+
 /* Ribbon ============================================================== */
+
 /* ====================================================================== */
 
 /* ----- Ribbon ----- */
@@ -769,9 +830,10 @@ body {
 .ribbon-hover .workspace-ribbon.mod-left.is-collapsed:not(:hover) {
   opacity: 0;
   max-width: 0.1px;
-  min-width: 0px;
-  padding: 0px;
+  min-width: 0;
+  padding: 0;
 }
+
 .ribbon-hover .workspace-ribbon.mod-left, .workspace-ribbon.mod-left.is-collapsed {
   transition: 0.25s;
 }
@@ -790,7 +852,9 @@ body {
 
 
 /* ====================================================================== */
+
 /* Colors ============================================================== */
+
 /* ====================================================================== */
 
 /* ------------ Colors -------------- */
@@ -809,21 +873,21 @@ body {
 /* Primary Colors */
 .theme-light, .theme-dark {
   --color-red-rgb: 232, 51,51;
-  --color-red: rgb(232, 41, 41);
+  --color-red: rgb(232 41 41);
   --color-cyan-rgb: 0, 194, 97;
-  --color-cyan: rgb(0, 163, 81);
+  --color-cyan: rgb(0 163 81);
   --color-orange-rgb: 230, 111, 0;
-  --color-orange: rgb(230, 111, 0);
+  --color-orange: rgb(230 111 0);
   --color-yellow-rgb: 204, 204, 0;
-  --color-yellow: rgb(163, 163, 0);
+  --color-yellow: rgb(163 163 0);
   --color-green-rgb: 97, 194, 0;
-  --color-green: rgb(82, 163, 0);
+  --color-green: rgb(82 163 0);
   --color-blue-rgb: 0, 105, 224;
-  --color-blue: rgb(0, 105, 224);
+  --color-blue: rgb(0 105 224);
   --color-purple-rgb: 81, 0, 194;
-  --color-purple: rgb(140, 63, 247);
+  --color-purple: rgb(140 63 247);
   --color-pink-rgb: 194, 0, 81;
-  --color-pink: rgb(194, 0, 81);
+  --color-pink: rgb(194 0 81);
   --callout-quote: 110, 110, 110;
 
 }
@@ -831,13 +895,13 @@ body {
 /* Dark Theme */
 .theme-dark { 
   /* Tab colors */
-  --tab-outline-color: hsl(calc(var(--accent-h) - 10), var(--accent-s), var(--accent-l), 55%);
+  --tab-outline-color: hsl(calc(var(--accent-h) - 10) var(--accent-s) var(--accent-l) / 55%);
   --tab-gradient: linear-gradient(to top,var(--color-accent-2) 0px,  var(--color-accent-3) 0px, var(--background-primary) 100%);
 
   /* Accents */
-  --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 3.5%));
-  --color-accent-2: hsl(calc(var(--accent-h) - 2), var(--accent-s), calc(var(--accent-l) - 4%));
-  --color-accent-3: hsla(calc(var(--accent-h) - 10), var(--accent-s), var(--accent-l), 20%);
+  --color-accent-1: hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) + 3.5%));
+  --color-accent-2: hsl(calc(var(--accent-h) - 2) var(--accent-s) calc(var(--accent-l) - 4%));
+  --color-accent-3: hsl(calc(var(--accent-h) - 10) var(--accent-s) var(--accent-l) / 20%);
 
   /* Main Colors */
   --color-base-00: #1e1f21;
@@ -846,44 +910,43 @@ body {
   --color-base-25: #2f3135;
   --color-base-30: #35383d;
   --color-base-35: #313539;
-  --color-base-40: rgb(50, 52, 60);
-  --color-base-50: rgb(142, 148, 157);
-  --color-base-60: rgb(179, 181, 193);
+  --color-base-40: rgb(50 52 60);
+  --color-base-50: rgb(142 148 157);
+  --color-base-60: rgb(179 181 193);
   --color-base-70: #d0d4d9;
-  --h6-background: hsla(var(--accent-h), 35%, calc(var(--accent-l) + 10%), 15%);
+  --h6-background: hsl(var(--accent-h) 35% calc(var(--accent-l) + 10%) / 15%);
   --color-base-100: #d8dce3;
   --background-secondary-alt: var(--color-base-10);
   --background-modifier-border: #dae1ea31;
 
   /* links */
-  --link-color: hsl(calc(var(--accent-h) + 5), var(--accent-s), calc(var(--accent-l) + 15%));
---link-unresolved-color: hsl(calc(var(--accent-h) - 5), var(--accent-s), calc(var(--accent-l) + 15%));
---link-external-color: hsl(calc(var(--accent-h) + 20), var(--accent-s), calc(var(--accent-l) + 20%));
---link-external-color-hover: hsl(calc(var(--accent-h) + 10), var(--accent-s), calc(var(--accent-l) + 3%));
+  --link-color: hsl(calc(var(--accent-h) + 5) var(--accent-s) calc(var(--accent-l) + 15%));
+--link-unresolved-color: hsl(calc(var(--accent-h) - 5) var(--accent-s) calc(var(--accent-l) + 15%));
+--link-external-color: hsl(calc(var(--accent-h) + 20) var(--accent-s) calc(var(--accent-l) + 20%));
+--link-external-color-hover: hsl(calc(var(--accent-h) + 10) var(--accent-s) calc(var(--accent-l) + 3%));
 }
 
 /* Light Theme */
 .theme-light {
-
   /* links */
-  --link-color: hsl(calc(var(--accent-h) + 5), var(--accent-s), calc(var(--accent-l) - 5%));
+  --link-color: hsl(calc(var(--accent-h) + 5) var(--accent-s) calc(var(--accent-l) - 5%));
   --link-unresolved-color: var(--color-accent-1);
-  --link-external-color: hsl(calc(var(--accent-h) + 20), var(--accent-s), calc(var(--accent-l) - 5%));
-  --link-external-color-hover: hsl(calc(var(--accent-h) + 10), var(--accent-s), calc(var(--accent-l) + 3%));
+  --link-external-color: hsl(calc(var(--accent-h) + 20) var(--accent-s) calc(var(--accent-l) - 5%));
+  --link-external-color-hover: hsl(calc(var(--accent-h) + 10) var(--accent-s) calc(var(--accent-l) + 3%));
 
     /* tabs */
-  --tab-outline-color: hsl(calc(var(--accent-h) - 10), var(--accent-s), var(--accent-l), 40%);
+  --tab-outline-color: hsl(calc(var(--accent-h) - 10) var(--accent-s) var(--accent-l) / 40%);
   --tab-gradient: linear-gradient(to top,var(--color-accent-2) 0px,  var(--color-accent-3) 0px, var(--background-primary) 100%);
 
   /* accent colors */
-  --color-accent-1: hsl(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 2.5%));
-  --color-accent-2: hsl(calc(var(--accent-h) - 2), var(--accent-s), calc(var(--accent-l) + 10%));
-  --color-accent-3: hsl(calc(var(--accent-h) - 10), var(--accent-s), var(--accent-l), 20%);
+  --color-accent-1: hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) - 2.5%));
+  --color-accent-2: hsl(calc(var(--accent-h) - 2) var(--accent-s) calc(var(--accent-l) + 10%));
+  --color-accent-3: hsl(calc(var(--accent-h) - 10) var(--accent-s) var(--accent-l) / 20%);
 
   /* Main colors */
-  --h6-background: rgb(235,235,210);
+  --h6-background: rgb(235 235 210);
   --background-modifier-border: #a2a9b1;
-  --color-base-00: #ffffff;
+  --color-base-00: #fff;
   --color-base-05: #f8f9fa;
   --color-base-10: #fafafa;
   --color-base-20: #f6f6f6;
@@ -894,12 +957,14 @@ body {
   --color-base-50: #989898;
   --color-base-60: #707070;
   --color-base-70: #5a5a5a;
-  --color-base-100: #222222;
+  --color-base-100: #222;
 }
 
 
 /* ====================================================================== */
+
 /* Plug-in Support ===================================================== */
+
 /* ====================================================================== */
 
 /* ------------ Plug-Ins ---------- */
@@ -909,33 +974,38 @@ body {
 .page-gallery__tile {
   border: 1px var(--background-modifier-border) solid;
   background-color: var(--background-secondary-alt);
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
+
 .page-gallery__tiles {
   gap: 4px;
   min-width: 100%;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   justify-content:flex-start;
   flex-grow: 1;
 }
+
 .page-gallery__groups {
   gap: 4px;
   width: 100%;
-  padding: 0px;
+  padding: 0;
 }
+
 .page-gallery__fallback, .page-gallery__fallback:hover {
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
   opacity: 1;
   background: var(--background-modifier-hover) !important;
 }
+
 .page-gallery__image, .page-gallery__image:hover {
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
   opacity: 1;
 }
+
 .page-gallery__field:first-child {
   background-color: var(--h6-background);
   text-align: center;
@@ -943,13 +1013,15 @@ body {
   font-size: var(--h6-size);
   font-weight: var(--h6-weight);
 }
+
 .page-gallery__fields {
   text-shadow: none;
-  margin: 0px;
+  margin: 0;
   padding: 4px;
   overflow-wrap: break-word;
   white-space: initial;
 }
+
 .page-gallery__field {
   font-size: 0.9em;
 }
@@ -958,11 +1030,12 @@ body {
 .page-gallery__views-header-item {
   font-size: var(--font-smaller);
   color: var(--link-color);
-  border-radius: 0px;
+  border-radius: 0;
   border-bottom: var(--background-modifier-border-hover) solid 1px;
-  margin: 0px 0px 1em 0px;
-  padding: 0px 0.5em;
+  margin: 0 0 1em 0;
+  padding: 0 0.5em;
 }
+
 .page-gallery__views-header-item.selected {
   background: transparent;
   box-shadow: none;
@@ -977,7 +1050,9 @@ body {
 
 
 /* ====================================================================== */
+
 /* Style Settings ====================================================== */
+
 /* ====================================================================== */
 
 /* @settings

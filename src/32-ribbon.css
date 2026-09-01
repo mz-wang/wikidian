@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Ribbon ============================================================== */
+
 /* ====================================================================== */
 
 /* ----- Ribbon ----- */
@@ -16,9 +18,10 @@ body {
 .ribbon-hover .workspace-ribbon.mod-left.is-collapsed:not(:hover) {
   opacity: 0;
   max-width: 0.1px;
-  min-width: 0px;
-  padding: 0px;
+  min-width: 0;
+  padding: 0;
 }
+
 .ribbon-hover .workspace-ribbon.mod-left, .workspace-ribbon.mod-left.is-collapsed {
   transition: 0.25s;
 }

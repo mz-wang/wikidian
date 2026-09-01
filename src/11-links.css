@@ -1,5 +1,7 @@
 /* ====================================================================== */
+
 /* Links, Tags & Footnotes ============================================= */
+
 /* ====================================================================== */
 
 /* ----- Links and Tags ----- */
@@ -7,7 +9,6 @@ body {
 --link-unresolved-opacity: 0.85;
 --link-decoration: none;
 --link-external-decoration: none;
-
 --tag-background: transparent;
 --tag-background-hover: transparent;
 --tag-padding-x: 0px;
@@ -22,8 +23,8 @@ body {
 a.tag, .editor .cl-hashtag {
   background-color: transparent;
   color: var(--link-color);
-  padding:0px;
-  margin: 0px;
+  padding:0;
+  margin: 0;
 }
 
 .external-link {

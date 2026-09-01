@@ -105,7 +105,8 @@ def main() -> int:
         print("theme.css is up to date")
         return 0
 
-    OUTPUT.write_text(css, encoding="utf-8")
+    # newline="\n" so a Windows build matches the LF checkout CI verifies.
+    OUTPUT.write_text(css, encoding="utf-8", newline="\n")
 
     for name, size in stats:
         print(f"  {name:26} {size / 1024:>8.1f} KB")

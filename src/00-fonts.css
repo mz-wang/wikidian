@@ -1,0 +1,40 @@
+/* ====================================================================== */
+/* Fonts ================================================================ */
+/* ====================================================================== */
+
+/*
+ * "Wikidian Libertine" is Linux Libertine O by Philipp H. Poll, subset to
+ * Latin + Latin-Ext and converted to WOFF2 by tools/subset_fonts.py. The font
+ * placeholders below are replaced with base64 data URIs by build.py -- Obsidian
+ * installs a theme by copying only `manifest.json` and `theme.css`, so the
+ * faces have to travel inside the stylesheet.
+ *
+ * The family is renamed because "Linux Libertine" is a Reserved Font Name under
+ * the SIL OFL and a subset counts as a Modified Version. `--h1-font` still lists
+ * 'Linux Libertine' after it, so a system-wide install of the original wins for
+ * any glyph outside the subset. See fonts/OFL.txt.
+ */
+
+@font-face {
+  font-family: 'Wikidian Libertine';
+  src: url('{{ font: WikidianLibertine-Regular.woff2 }}') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wikidian Libertine';
+  src: url('{{ font: WikidianLibertine-Bold.woff2 }}') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wikidian Libertine';
+  src: url('{{ font: WikidianLibertine-Italic.woff2 }}') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}

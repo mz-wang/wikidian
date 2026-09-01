@@ -1,0 +1,41 @@
+/* ====================================================================== */
+/* Tables ============================================================== */
+/* ====================================================================== */
+
+/* ------ Tables ------ */
+
+body {
+  --table-header-background: var(--background-modifier-hover);
+  --table-header-background-hover: var(--background-modifier-hover);
+  --table-header-size: 0.9em;
+  --table-border-width: 0.06em;
+}
+
+.markdown-rendered table {
+  margin: 1em 0;
+  background-color: var(--background-secondary-alt);
+  max-width: 100%;
+  word-break: break-all;
+}
+
+
+/* dataview tables */
+
+.table-view-table > thead > tr > th {
+  font-weight: 700;
+  border: solid var(--table-border-width) var(--background-modifier-border);
+  font-size: 0.9em;
+  padding: 0.2em 0.1em;
+}
+.table-view-table > tbody > tr > td {
+  text-align: left;
+  border: var(--table-border-width) solid var(--background-modifier-border);
+  font-weight: 400;
+  max-width: 100%;
+}
+
+/* table header */
+.markdown-rendered table thead tr th {
+  padding: 0.8em 1em;
+  text-align: center;
+}

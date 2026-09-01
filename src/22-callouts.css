@@ -1,0 +1,108 @@
+/* ====================================================================== */
+/* Callouts ============================================================ */
+/* ====================================================================== */
+
+/* ------- Callouts ------- */
+body {
+--infobox-position: right;
+}
+
+/* Style Info Callouts as infoboxes */
+body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~="normal"]), .callout[data-callout-metadata~="info"] {
+  float: var(--infobox-position);
+  clear: var(--infobox-position);
+  width: var(--infobox-width);
+  margin: var(--infobox-margin);
+  background-color: var(--background-secondary-alt);
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* callout alts */
+ .callout[data-callout-metadata~="right"] {
+  float: right;
+  clear: right;
+  width: var(--infobox-width);
+  margin: var(--infobox-margin);
+}
+.callout[data-callout-metadata~="left"] {
+  float: left;
+  clear: left;
+  width: var(--infobox-width);
+  margin: var(--infobox-margin-left);
+}
+body:not(.info-normal) .callout[data-callout="info"]:not([data-callout-metadata~="normal"]) .callout-title {
+  background-color: var(--h6-background);
+  border: none;
+  padding:0.2em;
+}
+
+/* callout classes */
+.hide-callout-title .callout[data-callout="info"] .callout-content p:first-of-type{
+margin: 0px; /* close gaps in infobox when info callout title is hidden */
+}
+.hide-callout-title .callout[data-callout="info"] .callout-title {
+  display: none;
+}
+
+/* make image full size inside a callout */
+.markdown-rendered .callout-content img, .cm-contentContainer .callout-content img {
+  float: none;
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+.callout {
+  overflow: hidden;
+  border: 1px solid rgba(var(--callout-color), 30%);
+  background-color: rgba(var(--callout-color), 10%);
+  margin: 1em;
+  color: var(--text-normal);
+  padding: 0.2em;
+  display: flexbox;
+  width: flex;
+  float: none;
+  clear: none;
+  line-height: 1.5em;
+}
+
+
+.callout-fold svg {
+  color: var(--text-normal);
+}
+
+.callout:not([data-callout="info"]),
+.info-normal .callout[data-callout="info"] {
+  --h6-background: rgba(var(--callout-color), 20%); /* make header 6 match callout color */
+}
+
+
+.callout-title,
+.callout:not([data-callout="info"]) h1,
+.callout:not([data-callout="info"]) h2,
+.callout:not([data-callout="info"]) h3,
+.callout:not([data-callout="info"]) h4,
+.callout:not([data-callout="info"]) h5,
+.callout:not([data-callout="info"]) h6 {
+  padding:0.2em 0.4em;
+  font-size: var(--h5-size);
+  border: 1px solid var(--background-modifier-hover);
+  background-color: rgba(var(--callout-color), 20%);
+  text-align: center;
+}
+.callout-title-inner {
+  font-weight: var(--bold-weight);
+  color: var(--text-normal);
+  margin-left: auto;
+  margin-right: auto;
+}
+.callout-icon .svg-icon {
+  color: var(--text-normal);
+  margin-left: 2px;
+}
+
+/* hide callout icons option */
+.hide-callout-icons .callout-icon .svg-icon {
+  display: none;
+}

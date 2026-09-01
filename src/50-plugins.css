@@ -1,0 +1,78 @@
+/* ====================================================================== */
+/* Plug-in Support ===================================================== */
+/* ====================================================================== */
+
+/* ------------ Plug-Ins ---------- */
+
+/* ------- Page Gallery ------- */
+
+.page-gallery__tile {
+  border: 1px var(--background-modifier-border) solid;
+  padding: 2px;
+  background-color: var(--background-secondary-alt);
+  padding: 0px;
+  margin: 0px;
+}
+.page-gallery__tiles {
+  gap: 4px;
+  min-width: 100%;
+  padding: 0px;
+  margin: 0px;
+  justify-content:flex-start;
+  flex-grow: 1;
+}
+.page-gallery__groups {
+  gap: 4px;
+  width: 100%;
+  padding: 0px;
+}
+.page-gallery__fallback, .page-gallery__fallback:hover {
+  border-radius: 0px;
+  box-shadow: none;
+  opacity: 1;
+  height: flex;
+  background: var(--background-modifier-hover) !important;
+}
+.page-gallery__image, .page-gallery__image:hover {
+  border-radius: 0px;
+  box-shadow: none;
+  opacity: 1;
+}
+.page-gallery__field:first-child {
+  background-color: var(--h6-background);
+  text-align: center;
+  margin-bottom: 0.2em;
+  font-size: var(--h6-size);
+  font-weight: var(--h6-weight);
+}
+.page-gallery__fields {
+  text-shadow: none;
+  margin: 0px;
+  padding: 4px;
+  word-wrap: break-word;
+  white-space: initial;
+}
+.page-gallery__field {
+  font-size: 0.9em;
+}
+
+/* buttons */
+.page-gallery__views-header-item {
+  font-size: var(--font-smaller);
+  color: var(--link-color);
+  border-radius: 0px;
+  border-bottom: var(--background-modifier-border-hover) solid 1px;
+  margin: 0px 0px 1em 0px;
+  padding: 0px 0.5em;
+}
+.page-gallery__views-header-item.selected {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid var(--text-normal);
+  color: var(--text-normal);
+}
+
+.page-gallery__views-header {
+  justify-content: center;
+  margin-top: 1em;
+}

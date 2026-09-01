@@ -1,0 +1,67 @@
+/* ====================================================================== */
+/* Sidebar, Folders & Files ============================================ */
+/* ====================================================================== */
+
+/* ------- Sidebar ------ */
+body {
+--vault-name-font-size: 1.4em;
+--vault-name-font-weight: 500;
+--indentation-guide-width: 0px;
+--nav-item-children-padding-left: 0px;
+}
+/* get rid of sidebar borders only */
+.workspace-split.mod-vertical > * > .workspace-leaf-resize-handle, .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+  border-right-style: solid;
+  border-right-width: 0px;
+}
+.workspace-ribbon {
+  border-right: none;
+}
+/* make sidebar background color match the main pane */
+.workspace-leaf-content[data-type="file-explorer"] {
+  background-color: var(--background-primary) !important;
+}
+
+/* ----- Folders ----- */
+
+/* folder background color */
+.nav-folder-children {
+  background-color: var(--background-secondary-alt);
+  padding: 5px;
+}
+
+/* ----- Files ----- */
+
+.nav-file-title-content {
+  color: var(--link-color);
+}
+.nav-file-title-content:hover {
+  color: var(--link-color-hover);
+}
+.nav-file-title:hover {
+  background-color: transparent !important;
+}
+
+/* collapse indicator */
+body {
+  --nav-collapse-icon-color: var(--text-muted);
+  --nav-collapse-icon-color-collapsed: var(--text-muted);
+}
+.collapse-icon svg.svg-icon {
+  stroke-width: 2.5px;
+}
+
+/* hide nav buttons until hover */
+.nav-header {
+  transition: height 0.15s, opacity 0.1s;
+}
+.nav-header:not(:hover) {
+  height: 5px;
+  opacity: 0;
+}
+.nav-header:hover {
+  opacity: 1;
+}
+.nav-buttons-container:hover {
+  opacity: 1;
+}

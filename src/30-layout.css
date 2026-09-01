@@ -1,0 +1,41 @@
+/* ====================================================================== */
+/* Layout (Scrollbars, Radii, Tabs) ==================================== */
+/* ====================================================================== */
+
+/* ------------ Layout ------------- */
+
+/* ---- Scrollbars ---- */
+body {
+--scrollbar-thumb-bg: transparent;
+}
+
+body:not(.native-scrollbars) ::-webkit-scrollbar {
+width: 10px;
+}
+
+
+/* border radiuses/radii(?) */
+body {
+  --radius-s: 0px;
+  --radius-m: 0px;
+  --radius-l: 0px;
+  --radius-xl: 0px;
+  --input-radius: 0px;
+}
+
+/* make page full width */
+body {
+    --file-line-width: 100%;
+  }
+  
+/* ----- Tabs ------ */
+body {
+  --tab-radius-active: 0px 0px 0 0;
+  --tab-divider-color: var(--tab-outline-color);
+  --tab-curve: 0px; 
+}
+.workspace-tab-header-container, .workspace-ribbon.mod-left:before {
+  background-image: var(--tab-gradient);
+  background-position: left bottom;
+  background-repeat: repeat-x;
+}

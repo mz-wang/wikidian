@@ -1,0 +1,54 @@
+/* ====================================================================== */
+/* Inline Dataview Fields ============================================== */
+/* ====================================================================== */
+
+/* ------- Inline Dataview ------- */
+
+/* default inline field styling */
+.dataview.inline-field-key {
+  font-family: var(--font-default);
+  font-weight: var(--font-bold);
+  background-color: transparent;
+  color: var(--text-nav-selected);
+}
+.dataview.inline-field-key::after {
+  content: ':';
+}
+.dataview.inline-field-value {
+  font-family: sans-serif;
+  background-color: transparent;
+  padding: 0px;
+  
+}
+.dataview.inline-field-standalone-value {
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--text-nav-selected);
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/* inline fields inside a callout */
+.callout-content .dataview.inline-field-key {
+  font-family: inherit;
+  font-size: var(--h6-size);
+  line-height: 1.6em;
+  font-weight: 600;
+  background-color: var(--h6-background);
+  text-align: center;
+  display: block;
+}
+
+/* get rid of ':' usually present after inline key when inside a callout */
+.callout-content .dataview.inline-field-key::after {
+  display: none;
+}
+
+/* center inline field value inside callout */
+.callout-content .dataview.inline-field-value {
+  background-color: transparent;
+  padding: 0px;
+  display: block;
+  text-align: center;
+}

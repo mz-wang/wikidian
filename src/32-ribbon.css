@@ -1,0 +1,36 @@
+/* ====================================================================== */
+/* Ribbon ============================================================== */
+/* ====================================================================== */
+
+/* ----- Ribbon ----- */
+
+/* default styles */
+body {
+  --ribbon-background: var(--background-primary);
+  --ribbon-width: 35px;
+  --icon-size: var(--icon-s);
+  --icon-l: 16.5px;
+}
+
+/* show on hover (Style Settings) */
+.ribbon-hover .workspace-ribbon.mod-left.is-collapsed:not(:hover) {
+  opacity: 0;
+  max-width: 0.1px;
+  min-width: 0px;
+  padding: 0px;
+}
+.ribbon-hover .workspace-ribbon.mod-left, .workspace-ribbon.mod-left.is-collapsed {
+  transition: 0.25s;
+}
+
+/* Hide (Style Settings) */
+.ribbon-hide .workspace-ribbon.mod-left.is-collapsed {
+  display: none;
+}
+
+/* default */
+.ribbon-default .workspace-ribbon.mod-left.is-collapsed:not(:hover) {
+  opacity: 1;
+  max-width: unset;
+  min-width: unset;
+}

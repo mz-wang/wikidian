@@ -1,0 +1,55 @@
+/* ====================================================================== */
+/* Code, Lists, Embeds, Dividers & Blockquotes ========================= */
+/* ====================================================================== */
+
+/* ------ Code ------ */
+body {
+  --code-normal: var(--text-normal);
+  --code-background: var(--background-secondary-alt);
+}
+.markdown-rendered code {
+  border: 1px solid var(--background-modifier-hover);
+  border-radius: 2px;
+  padding: 1px 4px;
+  
+}
+
+/* ----- Lists ------ */
+body {
+  --list-marker-color: var(--text-normal);
+  --list-bullet-size: 0.35em;
+}
+
+
+/* -------- Embeds ------ */
+body {
+  --embed-border-left: none;
+  --embed-padding: 0px;
+}
+
+.embed-title {
+  font-size: var(--h1-size);
+  font-family: vaR(--h1-font);
+  font-weight: var(--h1-weight);
+  color: var(--link-color);
+}
+
+.embed-title:hover {
+  color: var(--link-color-hover);
+}
+/* ------ Dividers ------- */
+ hr, .markdown-rendered hr {
+  color: var(--background-modifier-border);
+  border-width: 1px;
+  opacity: 1;
+  overflow: hidden;
+  margin: 0;
+}
+/* -------- Blockquotes ------- */
+.markdown-rendered blockquote {
+  padding-left: 1.6em;
+  overflow: hidden;
+  border-left: none;
+  margin: 1em 0px;
+  font-style: italic;
+}

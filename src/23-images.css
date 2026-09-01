@@ -1,0 +1,103 @@
+/* ====================================================================== */
+/* Images ============================================================== */
+/* ====================================================================== */
+
+/* ------ Images ------ */
+body {
+  --image-width: var(--infobox-width);
+  --img-max-width: 55%;
+}
+
+
+
+/* float to the right */
+.markdown-rendered img {
+  float: right;
+  margin: var(--infobox-margin);
+  width: var(--image-width);
+  clear: right;
+  background-color: var(--background-secondary-alt);
+  padding: 5px;
+  border: 1px var(--background-modifier-border) solid;
+  max-width: var(--img-max-width);
+}
+
+/* don't float images inside community themes */
+.community-item-screenshot {
+  width: 100% !important;
+}
+.community-modal-readme img {
+  float: none;
+  clear: none;
+  width:unset;
+}
+
+.cm-contentContainer img {
+  float: none !important;
+  clear: none !important;
+}
+
+
+/* alternate between float position */
+.markdown-rendered img ~  img {
+  float: left;
+  clear: left;
+  margin: var(--infobox-margin-left);
+}
+
+
+.no-float .markdown-rendered img,
+.no-float img ~ img {
+float: none;
+clear: none;
+width: revert;
+margin: 1em 0px;
+}
+
+.float-left .markdown-rendered img {
+  float: left;
+  clear: left;
+  margin: var(--infobox-margin-left);
+}
+.float-left .markdown-rendered img ~ img {
+  float: right;
+  clear: right;
+  margin: var(--infobox-margin);
+}
+
+.float-center .markdown-rendered img,
+.float-center .markdown-rendered img ~ img{
+  float: none;
+  clear: none;
+  display: block;
+  width: revert;
+  margin: 1em auto;
+}
+
+/* image alts */
+.markdown-rendered img[alt*=right] {
+  float: right !important;
+  clear: right !important;
+  margin: var(--infobox-margin) !important;
+  width: var(--image-width) !important;
+}
+.markdown-rendered img[alt*=left] {
+  float: left !important;
+  clear: left !important;
+  margin: var(--infobox-margin-left) !important;
+  width: var(--image-width) !important;
+}
+.markdown-rendered img[alt*=normal],
+.markdown-rendered img[alt*=no-float] {
+  float: none !important;
+  clear: none !important;
+  margin: 1em 0px !important;
+  width: revert !important;
+} 
+.markdown-rendered img[alt*=center] {
+  float: none !important;
+  clear: all !important;
+  margin: 1em auto !important;
+  display: block !important;
+  width: revert !important;
+}

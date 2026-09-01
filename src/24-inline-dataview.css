@@ -36,13 +36,16 @@
 
 /* inline fields inside a callout */
 .callout-content .dataview.inline-field-key {
+  display: block;
+  margin-bottom: 0.2em;
+  padding: 0;
   font-family: inherit;
   font-size: var(--h6-size);
-  line-height: 1.6em;
   font-weight: 600;
-  background-color: var(--h6-background);
+  line-height: 1.6em;
+  color: var(--text-normal);
   text-align: center;
-  display: block;
+  background-color: var(--h6-background);
 }
 
 /* get rid of ':' usually present after inline key when inside a callout */

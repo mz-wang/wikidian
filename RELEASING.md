@@ -30,8 +30,10 @@ be correct and pushed before you submit.
 - [ ] `name` is unique across [community-css-themes.json][registry].
       *"Wikidian" was unclaimed as of the last check; "Wikipedia" belongs to the
       upstream theme this one forks.*
-- [ ] `minAppVersion` is an Obsidian version the theme has actually been tested
-      against — not an aspirational floor.
+- [ ] `minAppVersion` is right. It is currently **1.4.0**, the release where
+      properties replaced the old frontmatter block — below it,
+      `src/20-properties.css` has nothing to style. Verified on **1.13.7**;
+      raise the floor if you find something older that misbehaves.
 - [ ] `README.md` and `LICENSE` are present. The README excerpt becomes the
       public listing.
 - [ ] A screenshot is committed at a stable path. **512 x 288 px, 16:9.**

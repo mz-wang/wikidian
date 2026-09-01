@@ -33,8 +33,16 @@ header with a yellow background.
 > [!tip]
 > Hide the callout's own title with Style Settings for a cleaner infobox.
 
-Note frontmatter is styled as an infobox too, and can be switched to a
-blockquote look in Style Settings.
+### Properties
+
+A note's properties table is styled as an infobox too — floated, with each
+property's name as a centred label above its value. It stays fully
+interactive: the type icon and *Add property* button fade in on hover rather
+than being removed. Style Settings can switch it to an inline label-and-value
+list, or hide it in both views.
+
+Requires Obsidian 1.4 or later, where properties replaced the old frontmatter
+block.
 
 ### Callout alts
 

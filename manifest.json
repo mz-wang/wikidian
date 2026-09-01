@@ -1,7 +1,7 @@
 {
   "name": "Wikidian",
   "version": "1.0.0",
-  "minAppVersion": "1.0.0",
+  "minAppVersion": "1.4.0",
   "author": "Mengzhao Wang",
   "authorUrl": "https://github.com/mz-wang/wikidian"
 }

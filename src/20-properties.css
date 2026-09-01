@@ -1,0 +1,177 @@
+/* ====================================================================== */
+
+/* Properties (Infobox) ================================================= */
+
+/* ====================================================================== */
+
+/*
+ * Obsidian renders note frontmatter as an interactive Properties table.
+ * Until Obsidian 1.4 that was `.frontmatter-container` with plain-text
+ * `.frontmatter-section-label` / `-data` children, which is what this rule
+ * set targeted for years; 1.4 replaced it with `.metadata-container` and a
+ * row of real inputs. Verified against Obsidian 1.13.7's app.css, in which
+ * `frontmatter-container` no longer appears at all.
+ *
+ * Most of the work is done by setting Obsidian's own `--metadata-*` variables
+ * rather than overriding its rules, so the interactive parts (focus rings,
+ * drag targets, type icons) keep behaving normally inside the infobox.
+ */
+
+body {
+  --infobox-width: 25%;
+  --infobox-margin: 1em 0 1em 1em;
+  --infobox-margin-left: 1em 1em 1em 0;
+}
+
+/* Hide properties entirely (Style Settings). These two variables are exactly
+   what Obsidian gates the container's `display` on, in both view modes. */
+.hide-properties {
+  --metadata-display-reading: none;
+  --metadata-display-editing: none;
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* Infobox style (default)                                                 */
+
+/* ---------------------------------------------------------------------- */
+
+body:not(.properties-inline) .metadata-container {
+  --metadata-background: var(--background-secondary-alt);
+  --metadata-border-color: var(--background-modifier-border);
+  --metadata-border-radius: 0;
+  --metadata-border-width: 1px;
+  --metadata-padding: 0.2em;
+  --metadata-gap: 0.5em;
+  --metadata-property-padding: 0;
+  --metadata-property-radius: 0;
+  --metadata-property-radius-hover: 0;
+  --metadata-property-radius-focus: 0;
+  --metadata-divider-width: 0;
+  --metadata-label-background: var(--h6-background);
+  --metadata-label-font-size: var(--h6-size);
+  --metadata-label-font-weight: var(--font-bold);
+  --metadata-label-text-color: var(--text-normal);
+  --metadata-label-text-color-hover: var(--text-normal);
+  --metadata-input-font-size: var(--font-text-size);
+  --metadata-input-text-color: var(--text-normal);
+  --metadata-max-width: none;
+
+  float: var(--infobox-position);
+  clear: var(--infobox-position);
+  width: var(--infobox-width);
+  margin: var(--infobox-margin);
+  line-height: 1.5em;
+
+  /* Obsidian nudges the container a few pixels left to align its inputs with
+     the note body. A floated box has nothing to align to, so undo it. */
+  transform: none;
+}
+
+/* Stack the label above the value, the way the old infobox read. Obsidian
+   does this itself, but only under `@container (width < 250px)` -- and an
+   infobox on a wide, full-width note is wider than that. */
+body:not(.properties-inline) .metadata-property {
+  flex-wrap: wrap;
+}
+
+body:not(.properties-inline) .metadata-property-key {
+  width: 100%;
+  min-width: 0;
+  justify-content: center;
+  margin-bottom: 0.2em;
+  border-bottom: 0;
+}
+
+body:not(.properties-inline) input.metadata-property-key-input {
+  text-align: center;
+}
+
+body:not(.properties-inline) .metadata-property-value {
+  justify-content: center;
+  padding-inline-start: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+/* The type icon would push the label off-centre. Lift it out of the flow and
+   reveal it on hover or focus so it stays clickable. */
+body:not(.properties-inline) .metadata-property-icon {
+  position: absolute;
+  inset-inline-start: 0;
+  padding: 0;
+  opacity: 0;
+  transition: opacity var(--anim-duration-fast) ease-in-out;
+}
+
+body:not(.properties-inline) .metadata-property:hover .metadata-property-icon,
+body:not(.properties-inline) .metadata-property:focus-within .metadata-property-icon {
+  opacity: 1;
+}
+
+/* A Wikipedia infobox leads with a title bar, so keep the Properties heading
+   and dress it as one instead of hiding it. */
+body:not(.properties-inline) .metadata-properties-heading {
+  display: block;
+  margin-bottom: 0.4em;
+  padding: 0.2em;
+  text-align: center;
+  background-color: var(--h6-background);
+}
+
+body:not(.properties-inline) .metadata-properties-title {
+  font-size: var(--h6-size);
+  font-weight: var(--font-bold);
+  color: var(--text-normal);
+}
+
+/* Obsidian parks the collapse arrow 22px to the left, which lands outside a
+   floated box. Bring it inside the border. */
+body:not(.properties-inline) .metadata-properties-heading .collapse-indicator {
+  inset-inline-start: 0;
+  padding: 0 2px;
+}
+
+/* "Add property" is editing chrome, not infobox content. Keep it reachable
+   without letting it sit in the rendered note. */
+body:not(.properties-inline) .metadata-container .metadata-add-button {
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.2em;
+  opacity: 0;
+}
+
+body:not(.properties-inline) .metadata-container:hover .metadata-add-button,
+body:not(.properties-inline) .metadata-container:focus-within .metadata-add-button {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------------- */
+
+/* Inline style (Style Settings)                                           */
+
+/* ---------------------------------------------------------------------- */
+
+/* Label beside value, no float, no box -- the old "Blockquote" option. */
+.properties-inline .metadata-container {
+  --metadata-background: transparent;
+  --metadata-border-width: 0;
+  --metadata-label-background: transparent;
+  --metadata-label-text-color: var(--text-muted);
+  --metadata-input-text-color: var(--text-normal);
+  --metadata-divider-width: 0;
+}
+
+.properties-inline .metadata-properties-heading {
+  color: var(--text-faint);
+}
+
+.properties-inline .metadata-property-key::after {
+  content: ':';
+  align-self: center;
+  padding-inline-end: 0.5em;
+}
+
+.properties-inline .metadata-property-value {
+  font-style: italic;
+}

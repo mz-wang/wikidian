@@ -49,28 +49,31 @@ settings:
         label: Fully Hidden (will not show on hover; toggle using a hotkey or command palette)
         value: ribbon-hide
   -
-    id: frontmatter-heading
-    title: Frontmatter
+    id: properties-heading
+    title: Properties
     type: heading
     level: 3
     collapsed: true
   -
-    id: hide-frontmatter
-    title: Hide Frontmatter
+    id: hide-properties
+    title: Hide Properties
+    description: Hide the properties table in both reading and editing views.
     type: class-toggle
     default: false
   -
-    id: frontmatter-style
-    title: Frontmatter Style
-    default: frontmatter-default
+    id: properties-style
+    title: Properties Style
+    description: Infobox floats the properties table beside the note, like a Wikipedia infobox. Inline lays it out as label-and-value rows in the normal flow.
+    default: properties-infobox
     type: class-select
+    allowEmpty: false
     options: 
       -
         label: Infobox
-        value: frontmatter-default
+        value: properties-infobox
       -
-        label: Blockquote
-        value: frontmatter-blockquote
+        label: Inline
+        value: properties-inline
   -
     id: typography-heading
     title: Typography
@@ -104,7 +107,7 @@ settings:
   -
     id: infobox-width
     title: Infobox Width
-    description: This will affect the width of all components styled like Wikipedia infoboxes. Depending on your settings, these may include Info callouts, frontmatter, and images.
+    description: This will affect the width of all components styled like Wikipedia infoboxes. Depending on your settings, these may include Info callouts, the properties table, and images.
     type: variable-text
     default: 25%
   -

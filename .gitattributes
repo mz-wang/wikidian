@@ -1,0 +1,7 @@
+# Normalize to LF everywhere; theme.css is byte-compared by `build.py --check`
+# in CI, so the checkout must not differ from what a local build produces.
+* text=auto eol=lf
+
+*.woff2 binary
+*.woff  binary
+*.png   binary

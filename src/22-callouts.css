@@ -60,8 +60,6 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
   margin: 1em;
   color: var(--text-normal);
   padding: 0.2em;
-  display: flexbox;
-  width: flex;
   float: none;
   clear: none;
   line-height: 1.5em;

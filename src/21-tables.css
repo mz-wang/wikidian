@@ -15,7 +15,7 @@ body {
   margin: 1em 0;
   background-color: var(--background-secondary-alt);
   max-width: 100%;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 

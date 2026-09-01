@@ -96,7 +96,7 @@ margin: 1em 0px;
 } 
 .markdown-rendered img[alt*=center] {
   float: none !important;
-  clear: all !important;
+  clear: both !important;
   margin: 1em auto !important;
   display: block !important;
   width: revert !important;

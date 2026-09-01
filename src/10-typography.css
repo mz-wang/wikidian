@@ -3,7 +3,7 @@
 /* ====================================================================== */
 
 body { 
---font-default: Arial, 'Archivo', sans-serif;
+--font-default: Arial, Helvetica, sans-serif;
 }
 
 /* ----- inline title ----- */
@@ -56,15 +56,15 @@ body{
 .special-h6 h6, .special-h6 .HyperMD-header-6  {
   background-color: var(--h6-background);
   text-align: center;
-  margin-bottom: 0.2;
-  padding:0.2em;
+  margin-bottom: 0.2em;
+  padding: 0.2em;
 }
 .callout h6, .callout .HyperMD-header-6,
-.callout h5, .callout .HyperMD-header-5
-.callout h4, .callout .HyperMD-header-4
-.callout h3, .callout .HyperMD-header-3
-.callout h2, .callout .HyperMD-header-2
-.callout h1, .callout .HyperMD-header-1  {
+.callout h5, .callout .HyperMD-header-5,
+.callout h4, .callout .HyperMD-header-4,
+.callout h3, .callout .HyperMD-header-3,
+.callout h2, .callout .HyperMD-header-2,
+.callout h1, .callout .HyperMD-header-1 {
   margin: 0px !important;
   padding: 0px !important;
 }

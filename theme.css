@@ -56,7 +56,7 @@
 /* ====================================================================== */
 
 body { 
---font-default: Arial, 'Archivo', sans-serif;
+--font-default: Arial, Helvetica, sans-serif;
 }
 
 /* ----- inline title ----- */
@@ -109,15 +109,15 @@ body{
 .special-h6 h6, .special-h6 .HyperMD-header-6  {
   background-color: var(--h6-background);
   text-align: center;
-  margin-bottom: 0.2;
-  padding:0.2em;
+  margin-bottom: 0.2em;
+  padding: 0.2em;
 }
 .callout h6, .callout .HyperMD-header-6,
-.callout h5, .callout .HyperMD-header-5
-.callout h4, .callout .HyperMD-header-4
-.callout h3, .callout .HyperMD-header-3
-.callout h2, .callout .HyperMD-header-2
-.callout h1, .callout .HyperMD-header-1  {
+.callout h5, .callout .HyperMD-header-5,
+.callout h4, .callout .HyperMD-header-4,
+.callout h3, .callout .HyperMD-header-3,
+.callout h2, .callout .HyperMD-header-2,
+.callout h1, .callout .HyperMD-header-1 {
   margin: 0px !important;
   padding: 0px !important;
 }
@@ -344,7 +344,7 @@ body {
   margin: 1em 0;
   background-color: var(--background-secondary-alt);
   max-width: 100%;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 
@@ -432,8 +432,6 @@ margin: 0px; /* close gaps in infobox when info callout title is hidden */
   margin: 1em;
   color: var(--text-normal);
   padding: 0.2em;
-  display: flexbox;
-  width: flex;
   float: none;
   clear: none;
   line-height: 1.5em;
@@ -578,7 +576,7 @@ margin: 1em 0px;
 } 
 .markdown-rendered img[alt*=center] {
   float: none !important;
-  clear: all !important;
+  clear: both !important;
   margin: 1em auto !important;
   display: block !important;
   width: revert !important;
@@ -910,7 +908,6 @@ body {
 
 .page-gallery__tile {
   border: 1px var(--background-modifier-border) solid;
-  padding: 2px;
   background-color: var(--background-secondary-alt);
   padding: 0px;
   margin: 0px;
@@ -932,7 +929,6 @@ body {
   border-radius: 0px;
   box-shadow: none;
   opacity: 1;
-  height: flex;
   background: var(--background-modifier-hover) !important;
 }
 .page-gallery__image, .page-gallery__image:hover {
@@ -951,7 +947,7 @@ body {
   text-shadow: none;
   margin: 0px;
   padding: 4px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   white-space: initial;
 }
 .page-gallery__field {

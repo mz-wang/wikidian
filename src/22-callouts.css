@@ -96,6 +96,34 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
   text-align: center;
 }
 
+/* The title bar is a flex row of icon, title and fold arrow, so auto margins on
+   the title only centre it in the space those two leave over -- pushing the text
+   off the bar's own centre. Take both out of the flow instead and pin them to
+   the edges, so the title centres on the bar itself. */
+.callout-title {
+  position: relative;
+}
+
+.callout-icon,
+.callout-fold {
+  position: absolute;
+
+  /* 0.2em is the title bar's own vertical padding; one line box tall so a
+     wrapped title keeps both markers beside its first line. */
+  top: 0.2em;
+  height: 1lh;
+  align-items: center;
+}
+
+.callout-icon {
+  inset-inline-start: 0.4em;
+}
+
+.callout-fold {
+  inset-inline-end: 0.4em;
+  padding-inline-end: 0;
+}
+
 .callout-title-inner {
   /* --bold-weight is calc(--font-weight + --bold-modifier), i.e. 600, which
      reads lighter than the properties table's heading. Match that instead. */
@@ -103,11 +131,14 @@ margin: 0; /* close gaps in infobox when info callout title is hidden */
   color: var(--text-normal);
   margin-left: auto;
   margin-right: auto;
+
+  /* Symmetric guard band the width of an icon, so a long title wraps rather
+     than running underneath the icon or the fold arrow. */
+  padding-inline: calc(var(--icon-size) + var(--size-4-1));
 }
 
 .callout-icon .svg-icon {
   color: var(--text-normal);
-  margin-left: 2px;
 }
 
 /* hide callout icons option */

@@ -6,8 +6,11 @@
 
 /* ------- Sidebar ------ */
 body {
---indentation-guide-width: 0px;
---nav-item-children-padding-left: 0px;
+  --indentation-guide-width: 1px;
+
+  /* Lucide's `file`, inlined so the file rows can mask it in whatever colour
+     the collapse arrows are wearing. */
+  --wikidian-file-glyph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3C/svg%3E");
 }
 
 /* get rid of sidebar borders only */
@@ -20,20 +23,55 @@ body {
   border-right: none;
 }
 
-/* make sidebar background color match the main pane */
+/* The file tree sits on the wiki surface grey as one field, the way a wiki
+   puts its navigation beside the article rather than on it. The tone change
+   is also what marks where the sidebar ends -- there is no rule between the
+   two panes. */
 .workspace-leaf-content[data-type="file-explorer"] {
-  background-color: var(--background-primary) !important;
+  background-color: var(--background-secondary-alt) !important;
+}
+
+/* The vault switcher is the one strip Obsidian paints in
+   --background-secondary, a third grey a shade off the field it sits in and
+   hemmed by the blue --tab-outline-color the tab bar uses. Put it on the same
+   field as the tree and separate it with a chrome-weight line instead. */
+body:not(.is-mobile) .workspace-split.mod-left-split .workspace-sidedock-vault-profile {
+  background-color: var(--background-secondary-alt);
+  border-top-color: var(--divider-color);
 }
 
 /* ----- Folders ----- */
 
-/* folder background color */
+/* Nesting is carried by the indentation guides, not by a tint per level: the
+   whole tree is already on the grey field. The padding stays -- with
+   --nav-item-children-padding-start it is what sets the 17px indent step. */
 .nav-folder-children {
-  background-color: var(--background-secondary-alt);
   padding: 5px;
 }
 
 /* ----- Files ----- */
+
+/*
+ * A folder row starts with its collapse arrow; a file row started with
+ * nothing, so a file read as one level deeper than the folders beside it --
+ * its name lands exactly where the next level's arrows do. Fill the gutter
+ * with a document glyph. Obsidian keeps the arrow in a 16px box pulled 20px
+ * left of the text, so the same box with the same pull lands the glyph on the
+ * arrows above it and leaves the name where it already was.
+ */
+.nav-file-title::before {
+  content: "";
+  flex: 0 0 auto;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  margin-inline: -20px 4px;
+  background-color: var(--nav-collapse-icon-color);
+  mask-image: var(--wikidian-file-glyph);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 13px;
+}
 
 .nav-file-title-content {
   color: var(--link-color);

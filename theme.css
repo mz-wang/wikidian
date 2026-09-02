@@ -382,6 +382,18 @@ body {
   font-family: var(--font-text);
 }
 
+/* A list or tag value is drawn as a pill whose content is clipped with
+   `overflow: hidden`, over a line box Obsidian keeps deliberately short --
+   `line-height: 1` for tags, `--line-height-tight` for everything else. Both
+   are shorter than a serif face's glyph box, which here is 1.46em, so the
+   pill cuts the descenders off `properties` and shaves the ascenders too.
+   `normal` sizes the line box from the font's own metrics, which is exactly
+   the height the clip needs. Specificity has to match Obsidian's own
+   `[data-property-type="tags"]` rule, hence the container. */
+.metadata-container .metadata-property-value .multi-select-pill {
+  line-height: normal;
+}
+
 /* Hide properties entirely (Style Settings). These two variables are exactly
    what Obsidian gates the container's `display` on, in both view modes. */
 .hide-properties {

@@ -1,8 +1,12 @@
 {
   "name": "wikidian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "An Obsidian theme that makes your vault read like an encyclopedia article.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mz-wang/wikidian.git"
+  },
   "scripts": {
     "lint": "stylelint \"src/**/*.css\" \"snippets/**/*.css\"",
     "lint:fix": "stylelint --fix \"src/**/*.css\" \"snippets/**/*.css\"",

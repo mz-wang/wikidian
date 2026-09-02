@@ -1,0 +1,18 @@
+Wikidian
+Copyright (c) 2026 mz-wang
+
+This project is a derivative work of the "Wikipedia" Obsidian theme by
+Ha'ani Whitlock (https://github.com/Bluemoondragon07/Wikipedia-Theme),
+originally released under the MIT License. The original copyright notice is
+retained in LICENSE as required by that license.
+
+This statement lives here rather than in LICENSE so that LICENSE stays the
+verbatim MIT text, which is what licence detectors -- including GitHub's and
+the Obsidian theme review bot's -- match against.
+
+Wikidian Libertine, the Latin subset embedded in theme.css, is derived from
+Linux Libertine O by Philipp H. Poll, used under the SIL Open Font License
+1.1. See fonts/README.md and fonts/OFL.txt.
+
+This project is not affiliated with or endorsed by Wikipedia or the Wikimedia
+Foundation.

@@ -261,7 +261,7 @@ Release and store-submission steps are in [RELEASING.md](RELEASING.md).
 Wikidian is derived from **[Wikipedia][upstream]** by Ha'ani Whitlock, used
 under the MIT License. Much of the original CSS was adapted from wikipedia.org
 and mapped onto Obsidian's components. Both copyright notices are retained in
-[LICENSE](LICENSE).
+[LICENSE](LICENSE), and the derivation is stated in [NOTICE](NOTICE).
 
 Article titles are set in **Wikidian Libertine**, a Latin subset of *Linux
 Libertine O* by Philipp H. Poll, used under the SIL Open Font License 1.1. See

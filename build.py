@@ -43,10 +43,15 @@ MIME_BY_SUFFIX = {
 
 def banner() -> str:
     manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
+    # The banner points at the repo, not at `authorUrl`: the store requires the
+    # latter to be a profile, and a profile is no help to someone holding a
+    # copied theme.css and wondering where it came from.
+    package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
+    repo = package["repository"]["url"].removesuffix(".git")
     return (
         "/*\n"
         f" * {manifest['name']} v{manifest['version']} -- an Obsidian theme.\n"
-        f" * {manifest['authorUrl']}\n"
+        f" * {repo}\n"
         " *\n"
         " * GENERATED FILE -- DO NOT EDIT.\n"
         " * Edit the modules in src/ and run `uv run build.py`.\n"

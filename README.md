@@ -113,6 +113,7 @@ Copy one into `<vault>/.obsidian/snippets/` and enable it under
 *Settings → Appearance → CSS snippets*.
 
 - `float-images-callouts-blockquotes.css` — extends floating to blockquotes.
+- `highlight-colors.css` — extra highlight colours as `<mark class="note">…</mark>`.
 
 ## Development
 

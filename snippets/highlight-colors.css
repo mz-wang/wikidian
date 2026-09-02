@@ -1,0 +1,62 @@
+/* Semantic highlight colours for Wikidian.
+ *
+ * Obsidian's ==highlight== syntax has one colour and no way to vary it, so
+ * a second colour has to be written as a tag:
+ *
+ *     <mark class="note">a blue highlight</mark>
+ *
+ * Write any nested formatting as HTML too -- <code>x</code>, not `x`. Reading
+ * view parses markdown inside the tag, but live preview hands the tag to a
+ * .cm-html-embed widget that does not, so backticks and ** would show up
+ * literally while you write and vanish when you read.
+ *
+ * Copy this file into <vault>/.obsidian/snippets/ and enable it under
+ * Settings -> Appearance -> CSS snippets. It is not part of the theme, so
+ * edit it freely -- add a role, rename one, change a hue.
+ *
+ * The colours are Wikidian's own --color-* palette rather than fixed values,
+ * so they follow the theme. Only the alpha is set per role, because the same
+ * hue needs more weight on white than it does on the dark surface.
+ *
+ * The palette vars hold comma-separated channels ("0, 105, 224"), so these
+ * have to use rgba()'s comma form -- substituting one into the modern
+ * `rgb(R G B / A)` syntax yields `rgb(0, 105, 224 / 45%)`, which is invalid
+ * and silently computes to transparent.
+ */
+
+.theme-light {
+  --hl-strength: 0.45;
+}
+
+.theme-dark {
+  --hl-strength: 0.28;
+}
+
+/* mark.<role> ties the class to the tag so it outranks core's
+ * `.markdown-rendered mark`, which would otherwise win on source order.
+ * The second selector is live preview, where a raw <mark> is a real element
+ * inside a .cm-html-embed widget rather than a CodeMirror token. */
+
+/* note -- an aside, a cross-reference, something to come back to */
+.markdown-rendered mark.note,
+.cm-html-embed mark.note {
+  background-color: rgb(var(--color-blue-rgb), var(--hl-strength));
+}
+
+/* ok -- settled, verified, done */
+.markdown-rendered mark.ok,
+.cm-html-embed mark.ok {
+  background-color: rgb(var(--color-green-rgb), var(--hl-strength));
+}
+
+/* warn -- a caveat, an open question, something that bites */
+.markdown-rendered mark.warn,
+.cm-html-embed mark.warn {
+  background-color: rgb(var(--color-orange-rgb), var(--hl-strength));
+}
+
+/* key -- the load-bearing sentence on the page */
+.markdown-rendered mark.key,
+.cm-html-embed mark.key {
+  background-color: rgb(var(--color-purple-rgb), var(--hl-strength));
+}

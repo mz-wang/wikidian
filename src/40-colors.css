@@ -55,15 +55,30 @@
   --color-base-20: #27282b;
   --color-base-25: #2f3135;
   --color-base-30: #35383d;
-  --color-base-35: #313539;
-  --color-base-40: rgb(50 52 60);
+
+  /* 35 and 40 used to sit below 30, which ran Obsidian's ramp backwards:
+     --interactive-hover came out darker than --interactive-normal and
+     --background-modifier-border-focus darker than the border it focuses. */
+  --color-base-35: #3d4046;
+  --color-base-40: #464a51;
   --color-base-50: rgb(142 148 157);
   --color-base-60: rgb(179 181 193);
   --color-base-70: #d0d4d9;
   --h6-background: hsl(var(--accent-h) 35% calc(var(--accent-l) + 10%) / 15%);
   --color-base-100: #d8dce3;
   --background-secondary-alt: var(--color-base-10);
+
+  /* Overriding the resting border alone left hover and focus reading off the
+     ramp, so hovering a field swapped a pale line for a dark one. Carry the
+     override through: same line, more of it. */
   --background-modifier-border: #dae1ea31;
+  --background-modifier-border-hover: #dae1ea52;
+  --background-modifier-border-focus: #dae1ea7a;
+
+  /* Split dividers and the vault bar are chrome, not content.
+     --background-modifier-border is the wiki rule under tables and H1s; at
+     that weight a full-height divider would cut the window in half. */
+  --divider-color: #3a3d42;
 
   /* links */
   --link-color: hsl(calc(var(--accent-h) + 5) var(--accent-s) calc(var(--accent-l) + 15%));
@@ -91,9 +106,16 @@
 
   /* Main colors */
   --h6-background: rgb(235 235 210);
+
+  /* see the dark theme's note; these are Wikipedia's border greys */
   --background-modifier-border: #a2a9b1;
+  --background-modifier-border-hover: #72777d;
+  --background-modifier-border-focus: #54595d;
   --color-base-00: #fff;
-  --color-base-05: #f8f9fa;
+
+  /* base-05 carried the wiki surface grey, which put it below base-10 and
+     broke the ramp. Keep Obsidian's step here and name the surface instead. */
+  --color-base-05: #fcfcfc;
   --color-base-10: #fafafa;
   --color-base-20: #f6f6f6;
   --color-base-25: #e3e3e3;
@@ -104,4 +126,8 @@
   --color-base-60: #707070;
   --color-base-70: #5a5a5a;
   --color-base-100: #222;
+  --background-secondary-alt: #f8f9fa;
+
+  /* see the dark theme's note */
+  --divider-color: #c8ccd1;
 }

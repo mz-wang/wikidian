@@ -59,7 +59,7 @@ be correct and pushed before you submit.
    ```json
    {
      "name": "Wikidian",
-     "author": "Mengzhao Wang",
+     "author": "mz-wang",
      "repo": "mz-wang/wikidian",
      "screenshot": "screenshots/store.png",
      "modes": ["dark", "light"]

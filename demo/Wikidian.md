@@ -1,6 +1,6 @@
 >[!info] Wikidian
 >[type:: Obsidian theme]
->[author:: Mengzhao Wang]
+>[author:: mz-wang]
 >[released:: 2 September 2026]
 >[version:: 1.0.0]
 >[written in:: CSS]

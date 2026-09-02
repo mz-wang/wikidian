@@ -17,7 +17,17 @@ that gets out of the way.
 > same fonts under a different name). Without them, CJK text falls back to
 > whatever serif and sans your platform happens to provide.
 
-<!-- TODO: screenshots -->
+![An article in the demo vault, light mode](screenshots/light.png)
+
+<details>
+<summary>The same note in dark mode</summary>
+
+![The same article in dark mode](screenshots/dark.png)
+
+</details>
+
+Every screenshot below is taken from `demo/`, a small vault that ships with the
+repo — see [Demo vault](#demo-vault).
 
 ## Install
 
@@ -37,8 +47,11 @@ frontmatter, infobox, and image-float options described below.
 Any **Info** callout (`>[!info]`) floats to the right of the note like a
 Wikipedia infobox. Inline Dataview fields written in brackets inside it — for
 example `[category::research]` — are laid out on separate lines and styled like
-infobox labels and values. A **Heading 6** inside the callout becomes a section
-header with a yellow background.
+infobox labels and values. A **Heading 6** inside the callout groups the fields
+into sections; with Style Settings installed it takes a pale background bar as
+well.
+
+![An Info callout laid out as an infobox](screenshots/infobox.png)
 
 > [!tip]
 > Hide the callout's own title with Style Settings for a cleaner infobox.
@@ -50,6 +63,8 @@ property's name as a centred label above its value. It stays fully
 interactive: the type icon and *Add property* button fade in on hover rather
 than being removed. Style Settings can switch it to an inline label-and-value
 list, or hide it in both views.
+
+![A note's properties table, floated as an infobox](screenshots/properties.png)
 
 Requires Obsidian 1.10.6 or later — see `minAppVersion` in `manifest.json`.
 
@@ -72,6 +87,8 @@ Requires Obsidian 1.10.6 or later — see `minAppVersion` in `manifest.json`.
 >[!check|info] A Check callout wearing infobox styling.
 ```
 
+![The callout set, retinted against the theme's palette](screenshots/callouts.png)
+
 ### Typography
 
 Body text and the article title (H1) are set in a serif; H2–H6 are set in a
@@ -83,6 +100,10 @@ megabytes — so they are named in the stack and come from the system: install
 **Source Han Serif SC** and **Source Han Sans SC** (or their Noto twins) for
 the intended look, otherwise Chinese text falls back to whatever serif and
 sans the platform provides.
+
+![The three-way split: serif title, sans headings, serif body](screenshots/typography.png)
+
+![A Chinese article in the same layout](screenshots/cjk.png)
 
 A font chosen under *Settings → Appearance* overrides all of this, as usual.
 
@@ -101,6 +122,8 @@ A font chosen under *Settings → Appearance* overrides all of this, as usual.
 ![[books.png|left]]
 ![center](books.png)
 ```
+
+![Images bordered and floated at infobox width](screenshots/images.png)
 
 Images float by default and alternate sides when several appear in a row.
 Images inside callouts never float. The global default is configurable in
@@ -133,6 +156,8 @@ as a tag. The tag picks the treatment and the class picks the role:
 | `ok`   | green  | settled, verified, done                                  |
 | `warn` | orange | a caveat, an open question, something that bites         |
 | `key`  | purple | the load-bearing sentence on the page                    |
+
+![The four roles as a wash and as a text colour](screenshots/semantic-colors.png)
 
 ```markdown
 <mark class="warn">Rebuilding does not update the vault's copy.</mark>
@@ -171,17 +196,63 @@ inlined because Obsidian installs a theme by copying only `manifest.json` and
 `theme.css` — there is no second file it would fetch.
 
 ```
-src/                   theme source, one file per area
-fonts/                 subset WOFF2 faces + their license
-tools/subset_fonts.py  regenerate the font subsets from upstream
-build.py               src/ + fonts/ -> theme.css
-snippets/              optional add-ons, not part of the theme
-screenshots/           store listing images (512x288)
+src/                        theme source, one file per area
+fonts/                      subset WOFF2 faces + their license
+build.py                    src/ + fonts/ -> theme.css
+snippets/                   optional add-ons, not part of the theme
+demo/                       the vault every screenshot is taken from
+screenshots/                store and README images
+tools/subset_fonts.py       regenerate the font subsets from upstream
+tools/make_demo_figures.py  the plates inside demo/Attachments
+tools/setup_demo_vault.py   install the built theme into demo/
+tools/make_screenshots.py   drive Obsidian and write screenshots/
+tools/capture_window.ps1    grab the Obsidian window (Windows)
 ```
 
 To iterate, copy or symlink the repo into
 `<vault>/.obsidian/themes/Wikidian/` — the folder name must match `name` in
 `manifest.json` — and reload Obsidian after each build.
+
+### Demo vault
+
+`demo/` is an Obsidian vault whose notes are an encyclopedia entry about the
+theme itself, a reference page per feature, and one page in Chinese. Every
+screenshot in this README comes from it, so the images can be rebuilt for a
+release instead of being re-staged by hand.
+
+The notes, their figures, and the vault's settings are tracked. Anything that
+is a copy of something else is not — the theme, the snippet, the Dataview
+plugin — so the vault needs one command before it looks right:
+
+```sh
+uv run build.py
+uv run tools/setup_demo_vault.py
+```
+
+Then open `demo/` as a vault and install **Dataview** from *Settings →
+Community plugins*: the infoboxes are built from its inline `field:: value`
+syntax, and without it the brackets show through. `uv run
+tools/make_demo_figures.py` redraws the plates in `demo/Attachments/`.
+
+With the vault open, rebuild the images in `screenshots/`:
+
+```sh
+uv run --with pillow tools/make_screenshots.py
+uv run --with pillow tools/make_screenshots.py --only callouts --only cjk
+```
+
+It drives the running app over the Obsidian CLI — open a note, switch theme,
+scroll to a heading — grabs the window, and crops to element geometry read out
+of the live DOM, so a crop stays right when the content moves. It switches the
+app to English for the run and puts the language back afterwards. Windows only:
+the capture step is PowerShell.
+
+The run stops rather than writing a wrong image if the window does not take the
+size it was asked for, if it cannot be brought to the foreground — Obsidian does
+not render its reading view in the background, so the grab would be of a blank
+pane — or if a `Shot`'s anchor heading is no longer in the note, in which case
+it prints the headings that *are* there. Rename a heading in `demo/` and the
+next run will tell you which anchor to fix.
 
 Release and store-submission steps are in [RELEASING.md](RELEASING.md).
 

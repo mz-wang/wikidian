@@ -1,0 +1,11 @@
+{
+  "attachmentFolderPath": "Attachments",
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "alwaysUpdateLinks": true,
+  "readableLineLength": true,
+  "showLineNumber": false,
+  "promptDelete": false,
+  "showUnsupportedFiles": false,
+  "strictLineBreaks": true
+}

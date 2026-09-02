@@ -16,3 +16,11 @@ Thumbs.db
 *.bak
 *.orig
 /tmp/
+
+# Demo vault: the notes are tracked, the copies and the per-machine state are
+# not. `uv run tools/setup_demo_vault.py` puts the theme and snippet back;
+# Dataview is installed from inside Obsidian.
+/demo/.obsidian/workspace.json
+/demo/.obsidian/plugins/
+/demo/.obsidian/themes/
+/demo/.obsidian/snippets/

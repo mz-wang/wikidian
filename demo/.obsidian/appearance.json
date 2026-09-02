@@ -1,0 +1,9 @@
+{
+  "cssTheme": "Wikidian",
+  "theme": "moonstone",
+  "accentColor": "",
+  "baseFontSize": 16,
+  "enabledCssSnippets": [
+    "semantic-colors"
+  ]
+}

@@ -1,0 +1,30 @@
+/* ====================================================================== */
+
+/* Highlights ========================================================== */
+
+/* ====================================================================== */
+
+/* Obsidian's default --text-highlight-bg is rgb(255 208 0 / 40%), a
+   fluorescent orange-yellow that sits outside the wiki palette. This is the
+   same hue family as Wikipedia's search-hit yellow, desaturated to sit under
+   body text rather than shout over it.
+
+   The dark theme needs its own alpha: at 45% the yellow composites against
+   --color-base-00 into a muddy olive that drags the text down with it. */
+.theme-light {
+  --text-highlight-bg: rgb(252 211 77 / 45%);
+}
+
+.theme-dark {
+  --text-highlight-bg: rgb(252 211 77 / 28%);
+}
+
+/* Same gap for a raw <mark>: in live preview it sits inside a .cm-html-embed
+   widget that core's .markdown-rendered mark rule cannot reach, and the
+   .cm-highlight token class does not match a real element, so it falls back
+   to the browser's fluorescent yellow with black text -- unreadable on the
+   dark theme. Make the tag match what == already renders as. */
+.cm-html-embed mark {
+  color: var(--text-normal);
+  background-color: var(--text-highlight-bg);
+}

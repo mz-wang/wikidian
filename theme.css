@@ -209,14 +209,62 @@ sup.footnote-ref {
 /* ------ Code ------ */
 body {
   --code-normal: var(--text-normal);
-  --code-background: var(--background-secondary-alt);
 }
 
-.markdown-rendered code {
-  border: 1px solid var(--background-modifier-hover);
-  border-radius: 2px;
-  padding: 1px 4px;
-  
+/* A translucent wash rather than --background-secondary-alt: an opaque chip
+   paints over anything underneath, so inline code inside ==a highlight== cut
+   the highlight in half. These alphas composite to the same greys the opaque
+   values gave (#f8f8f8 on white, #252628 on --color-base-00), so code on
+   ordinary text is unchanged -- it is only the highlight that now shows
+   through. */
+.theme-light {
+  --code-background: rgb(0 0 0 / 2.7%);
+}
+
+.theme-dark {
+  --code-background: rgb(255 255 255 / 3%);
+}
+
+/* The wash is 3% off the page, far too faint to read as a chip against a
+   highlight, so the border is what actually delimits inline code. Live
+   preview needs it most: there the highlight and the code are one element
+   carrying both classes, the highlight's background always wins, and the
+   border is the only mark the code has left.
+
+   Drive it through Obsidian's own variables rather than a `code,
+   .cm-inline-code` rule of our own -- core styles live preview through
+   `.cm-inline-code:not(.cm-formatting)`, which outranks a lone class
+   selector and would zero the width straight back out. The variables also
+   carry the split-corner cases core handles when the cursor reveals the
+   backticks. */
+body {
+  --code-border-color: var(--background-modifier-hover);
+  --code-border-width: 1px;
+  --code-radius: 2px;
+}
+
+/* A <code> written as a raw tag rather than in backticks lands in a
+   .cm-html-embed widget in live preview, where it is a real HTML element and
+   not a CodeMirror token -- it matches neither .markdown-rendered code nor
+   .cm-inline-code, so it loses the chip entirely and reads as plain text.
+   Reading view already gets this right; this is the editor's half.
+
+   The pre rule mirrors core's .markdown-rendered pre code, so a fenced block
+   written as HTML does not come out with a border around every line. */
+.cm-html-embed code {
+  color: var(--code-normal);
+  background-color: var(--code-background);
+  border: var(--code-border-width) solid var(--code-border-color);
+  border-radius: var(--code-radius);
+  padding: 0.15em 0.3em;
+  font-family: var(--font-monospace);
+  font-size: var(--code-size);
+}
+
+.cm-html-embed pre code {
+  background-color: transparent;
+  border: none;
+  padding: 0;
 }
 
 /* ----- Lists ------ */
@@ -259,6 +307,38 @@ body {
   border-left: none;
   margin: 1em 0;
   font-style: italic;
+}
+
+
+/* ====================================================================== */
+
+/* Highlights ========================================================== */
+
+/* ====================================================================== */
+
+/* Obsidian's default --text-highlight-bg is rgb(255 208 0 / 40%), a
+   fluorescent orange-yellow that sits outside the wiki palette. This is the
+   same hue family as Wikipedia's search-hit yellow, desaturated to sit under
+   body text rather than shout over it.
+
+   The dark theme needs its own alpha: at 45% the yellow composites against
+   --color-base-00 into a muddy olive that drags the text down with it. */
+.theme-light {
+  --text-highlight-bg: rgb(252 211 77 / 45%);
+}
+
+.theme-dark {
+  --text-highlight-bg: rgb(252 211 77 / 28%);
+}
+
+/* Same gap for a raw <mark>: in live preview it sits inside a .cm-html-embed
+   widget that core's .markdown-rendered mark rule cannot reach, and the
+   .cm-highlight token class does not match a real element, so it falls back
+   to the browser's fluorescent yellow with black text -- unreadable on the
+   dark theme. Make the tag match what == already renders as. */
+.cm-html-embed mark {
+  color: var(--text-normal);
+  background-color: var(--text-highlight-bg);
 }
 
 

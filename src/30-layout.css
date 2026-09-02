@@ -42,3 +42,32 @@ body {
   background-position: left bottom;
   background-repeat: repeat-x;
 }
+
+/* ---- Frameless window controls ---- */
+
+/*
+ * On Windows and Linux the caption-button strip paints --titlebar-background
+ * over the right end of the tab bar, which chops the gradient off short of
+ * the window edge. The strip lives in the .titlebar overlay, which is itself
+ * transparent and sits above the tab bar, so dropping its own background is
+ * enough to let the gradient run the full width behind the buttons.
+ */
+.is-hidden-frameless:not(.is-fullscreen) .titlebar-button-container.mod-right,
+.is-hidden-frameless:not(.is-fullscreen).is-focused .titlebar-button-container.mod-right {
+  background-color: transparent;
+}
+
+/*
+ * The first tab sat 18px inside the split boundary (8px on the container,
+ * 15px on the inner strip, less its -5px margin), which read as a gap at the
+ * end of the sidebar's own mostly-empty tab strip. Pull it in so the tabs
+ * start where the note below them does.
+ */
+.mod-root .workspace-tab-header-container {
+  padding-inline-start: 0;
+}
+
+.mod-root .workspace-tab-header-container-inner {
+  margin-inline-start: 0;
+  padding-inline-start: 4px;
+}

@@ -113,7 +113,46 @@ Copy one into `<vault>/.obsidian/snippets/` and enable it under
 *Settings → Appearance → CSS snippets*.
 
 - `float-images-callouts-blockquotes.css` — extends floating to blockquotes.
-- `highlight-colors.css` — extra highlight colours as `<mark class="note">…</mark>`.
+- `semantic-colors.css` — four semantic roles as a highlight or a text colour.
+
+#### Semantic colours
+
+`==highlight==` has one colour and no way to vary it, and there is no markdown
+for a text colour at all, so `semantic-colors.css` defines four roles you write
+as a tag. The tag picks the treatment and the class picks the role:
+
+| Tag                           | Effect                    |
+| ----------------------------- | ------------------------- |
+| `<mark class="key">…</mark>`  | a wash behind the text    |
+| `<span class="key">…</span>`  | the text itself           |
+| `<code class="key">…</code>`  | inline code, chip and all |
+
+| Role   | Colour | Meaning                                                 |
+| ------ | ------ | ------------------------------------------------------- |
+| `note` | blue   | an aside, a cross-reference, something to come back to   |
+| `ok`   | green  | settled, verified, done                                  |
+| `warn` | orange | a caveat, an open question, something that bites         |
+| `key`  | purple | the load-bearing sentence on the page                    |
+
+```markdown
+<mark class="warn">Rebuilding does not update the vault's copy.</mark>
+
+The flag is <span class="note">optional</span> unless you passed
+<code class="warn">--strict</code>.
+
+<span class="ok">Verified on <code>1.10.6</code> and later.</span>
+```
+
+Nested formatting has to be written as HTML too — `<code>x</code>`, not
+`` `x` ``. Reading view parses markdown inside the tag, but live preview hands
+the tag to a widget that does not, so backticks would show up literally while
+you write and vanish when you read. Inline code inside a `<span>` picks the
+role up on its own; a lone piece of coloured code carries the class itself.
+
+The colours are the theme's own palette, so they follow it — darkened on the
+light theme and lightened on the dark one, where the palette's mid tones would
+otherwise sit around 3:1 against the page. Each role is a couple of lines in
+the snippet: change a hue, rename a role, add a fifth.
 
 ## Development
 

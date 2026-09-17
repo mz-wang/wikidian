@@ -7,12 +7,15 @@
 /* ------------ Layout ------------- */
 
 /* ---- Scrollbars ---- */
-body {
---scrollbar-thumb-bg: transparent;
-}
 
-::-webkit-scrollbar {
-width: 10px;
+/* Keep the thumb visible at rest so the reader can tell where they are in a
+   long note; Obsidian's own 10% wash is too faint against the paper ground. */
+body {
+  --scrollbar-width: 14px;
+  --scrollbar-height: 14px;
+  --scrollbar-border-width: 3px;
+  --scrollbar-thumb-bg: color-mix(in oklch, var(--mono-100) 22%, transparent);
+  --scrollbar-active-thumb-bg: color-mix(in oklch, var(--mono-100) 40%, transparent);
 }
 
 
